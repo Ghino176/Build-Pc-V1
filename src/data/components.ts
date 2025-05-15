@@ -20,49 +20,49 @@ export const componentCategories: ComponentCategory[] = [
   {
     id: "cpu",
     name: "CPU",
-    description: "Central Processing Unit - The brain of your computer",
+    description: "Unidad Central de Procesamiento - El cerebro de tu computadora",
     icon: "cpu"
   },
   {
     id: "motherboard",
     name: "Motherboard",
-    description: "Connects all components together",
+    description: "Conecta todos los componentes entre sí",
     icon: "pc-case"
   },
   {
     id: "ram",
     name: "Memory (RAM)",
-    description: "Temporary storage for running applications",
+    description: "Almacenamiento temporal para aplicaciones en ejecución",
     icon: "memory-stick"
   },
   {
     id: "gpu",
     name: "Graphics Card",
-    description: "Renders images, video and 3D applications",
+    description: "Renderiza imágenes, video y aplicaciones 3D",
     icon: "monitor"
   },
   {
     id: "storage",
     name: "Storage",
-    description: "SSDs and HDDs for storing your data",
+    description: "SSDs y HDDs para almacenar tus datos",
     icon: "hard-drive"
   },
   {
     id: "psu",
     name: "Power Supply",
-    description: "Provides power to all components",
+    description: "Proporciona energía a todos los componentes",
     icon: "pc-case"
   },
   {
     id: "case",
     name: "Case",
-    description: "Housing for all your components",
+    description: "Carcasa para todos tus componentes",
     icon: "pc-case"
   },
   {
     id: "cooling",
     name: "Cooling",
-    description: "Keeps your components from overheating",
+    description: "Mantiene tus componentes sin sobrecalentarse",
     icon: "pc-case"
   }
 ];
@@ -83,7 +83,7 @@ export const components: Component[] = [
       tdp: "105W",
       socket: "AM4"
     },
-    description: "8-core, 16-thread desktop processor with exceptional performance for gaming and content creation."
+    description: "Procesador de escritorio de 8 núcleos y 16 hilos con rendimiento excepcional para juegos y creación de contenido."
   },
   {
     id: "cpu2",
@@ -99,7 +99,7 @@ export const components: Component[] = [
       tdp: "125W",
       socket: "LGA 1700"
     },
-    description: "Intel's flagship desktop processor with hybrid architecture for extreme performance."
+    description: "Procesador insignia de escritorio de Intel con arquitectura híbrida para un rendimiento extremo."
   },
   {
     id: "cpu3",
@@ -115,7 +115,7 @@ export const components: Component[] = [
       tdp: "65W",
       socket: "AM4"
     },
-    description: "6-core, 12-thread desktop processor ideal for gaming and everyday productivity."
+    description: "Procesador de escritorio de 6 núcleos y 12 hilos ideal para juegos y productividad diaria."
   },
 
   // Motherboards
@@ -132,7 +132,7 @@ export const components: Component[] = [
       maxMemory: "128GB",
       socket: "AM4"
     },
-    description: "Feature-rich ATX motherboard with advanced cooling and networking options."
+    description: "Placa base ATX con gran cantidad de características, opciones avanzadas de refrigeración y redes."
   },
   {
     id: "motherboard2",
@@ -147,7 +147,7 @@ export const components: Component[] = [
       maxMemory: "128GB",
       socket: "LGA 1700"
     },
-    description: "High-performance motherboard with DDR5 support and robust power delivery."
+    description: "Placa base de alto rendimiento con soporte para DDR5 y suministro de energía robusto."
   },
 
   // RAM
@@ -163,7 +163,7 @@ export const components: Component[] = [
       speed: "3600MHz",
       cas: "CL18"
     },
-    description: "High-performance RGB memory with aluminum heat spreaders for enhanced thermal management."
+    description: "Memoria RGB de alto rendimiento con disipadores de calor de aluminio para una mejor gestión térmica."
   },
   {
     id: "ram2",
@@ -177,7 +177,7 @@ export const components: Component[] = [
       speed: "3600MHz",
       cas: "CL16"
     },
-    description: "Optimized for AMD Ryzen systems with stunning RGB lighting effects."
+    description: "Optimizada para sistemas AMD Ryzen con impresionantes efectos de iluminación RGB."
   },
 
   // GPUs
@@ -193,7 +193,7 @@ export const components: Component[] = [
       boostClock: "1710 MHz",
       tdp: "320W"
     },
-    description: "Powerful graphics card for 4K gaming and creative workflows."
+    description: "Potente tarjeta gráfica para juegos en 4K y flujos de trabajo creativos."
   },
   {
     id: "gpu2",
@@ -207,7 +207,7 @@ export const components: Component[] = [
       boostClock: "2250 MHz",
       tdp: "300W"
     },
-    description: "Competitive high-end graphics card with large VRAM buffer."
+    description: "Tarjeta gráfica de gama alta competitiva con gran búfer de VRAM."
   },
 
   // Storage
@@ -224,7 +224,7 @@ export const components: Component[] = [
       readSpeed: "3500 MB/s",
       writeSpeed: "3300 MB/s"
     },
-    description: "High-speed NVMe SSD for fast boot times and application loading."
+    description: "SSD NVMe de alta velocidad para tiempos de arranque rápidos y carga de aplicaciones."
   },
   {
     id: "storage2",
@@ -239,7 +239,7 @@ export const components: Component[] = [
       rpm: 7200,
       cacheSize: "256MB"
     },
-    description: "High-capacity hard drive for mass storage needs."
+    description: "Disco duro de alta capacidad para necesidades de almacenamiento masivo."
   },
 
   // PSUs
@@ -254,7 +254,7 @@ export const components: Component[] = [
       efficiency: "80+ Gold",
       modular: "Fully Modular"
     },
-    description: "Reliable power supply with 80 Plus Gold certification and silent operation."
+    description: "Fuente de alimentación confiable con certificación 80 Plus Gold y operación silenciosa."
   },
   {
     id: "psu2",
@@ -267,7 +267,7 @@ export const components: Component[] = [
       efficiency: "80+ Gold",
       modular: "Fully Modular"
     },
-    description: "Fully modular power supply with high efficiency and reliable performance."
+    description: "Fuente de alimentación totalmente modular con alta eficiencia y rendimiento confiable."
   },
 
   // Cases
@@ -282,7 +282,7 @@ export const components: Component[] = [
       motherboardSupport: "E-ATX, ATX, Micro-ATX, Mini-ITX",
       dimensions: "445mm x 272mm x 446mm"
     },
-    description: "Dual-chamber layout for optimal cooling and clean cable management."
+    description: "Diseño de doble cámara para una refrigeración óptima y una gestión limpia de cables."
   },
   {
     id: "case2",
@@ -295,7 +295,7 @@ export const components: Component[] = [
       motherboardSupport: "E-ATX, ATX, Micro-ATX, Mini-ITX",
       dimensions: "474mm x 229mm x 466mm"
     },
-    description: "High-airflow case with excellent build quality and versatile internal layout."
+    description: "Carcasa de alto flujo de aire con excelente calidad de construcción y diseño interno versátil."
   },
 
   // Cooling
@@ -310,7 +310,7 @@ export const components: Component[] = [
       radiatorSize: "280mm",
       fanSize: "2x 140mm"
     },
-    description: "280mm AIO liquid cooler with RGB infinity mirror design."
+    description: "Refrigerador líquido AIO de 280mm con diseño de espejo infinito RGB."
   },
   {
     id: "cooling2",
@@ -323,11 +323,11 @@ export const components: Component[] = [
       height: "165mm",
       fanSize: "2x 140mm"
     },
-    description: "Premium dual-tower CPU cooler with excellent heat dissipation."
+    description: "Refrigerador de CPU de torre dual premium con excelente disipación de calor."
   }
 ];
 
-// Helper function to get components by category
+// Función auxiliar para obtener componentes por categoría
 export const getComponentsByCategory = (category: string): Component[] => {
   return components.filter(component => component.category === category);
 };
