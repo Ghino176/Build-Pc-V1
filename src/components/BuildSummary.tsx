@@ -4,16 +4,56 @@ import { usePcBuilder } from '@/context/PcBuilderContext';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { formatPrice } from '@/lib/utils';
-import { ShoppingCart, Share2 } from 'lucide-react';
+import { ShoppingCart, Share2, Gamepad } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { componentCategories } from '@/data/components';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
 const BuildSummary: React.FC = () => {
-  const { selectedComponents, totalPrice } = usePcBuilder();
+  const { selectedComponents } = usePcBuilder();
   
   const totalComponents = Object.keys(selectedComponents).length;
   const percentageComplete = Math.round((totalComponents / componentCategories.length) * 100);
+  
+  // Determine compatible games based on selected GPU and CPU
+  const getCompatibleGames = () => {
+    const gpu = selectedComponents['gpu'];
+    const cpu = selectedComponents['cpu'];
+    
+    if (!gpu && !cpu) return [];
+    
+    // Basic game recommendations based on components
+    const games = [];
+    
+    // High-end build
+    if ((gpu?.price > 500 || cpu?.price > 300) && totalComponents >= 5) {
+      games.push(
+        { name: "Cyberpunk 2077", performance: "Alta" },
+        { name: "Elden Ring", performance: "Alta" },
+        { name: "Call of Duty: Modern Warfare", performance: "Ultra" }
+      );
+    } 
+    // Mid-range build
+    else if ((gpu?.price > 300 || cpu?.price > 200) && totalComponents >= 4) {
+      games.push(
+        { name: "Fortnite", performance: "Alta" },
+        { name: "GTA V", performance: "Alta" },
+        { name: "Apex Legends", performance: "Media" }
+      );
+    } 
+    // Entry-level build
+    else if (gpu || cpu) {
+      games.push(
+        { name: "League of Legends", performance: "Media" },
+        { name: "Minecraft", performance: "Media" },
+        { name: "CS:GO", performance: "Media" }
+      );
+    }
+    
+    return games;
+  };
+  
+  const compatibleGames = getCompatibleGames();
   
   return (
     <Card className="tech-card sticky top-24">
@@ -48,7 +88,6 @@ const BuildSummary: React.FC = () => {
                       </TooltipTrigger>
                       <TooltipContent>
                         <p>{component.name}</p>
-                        <p className="text-tech-lightBlue">{formatPrice(component.price)}</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -62,10 +101,30 @@ const BuildSummary: React.FC = () => {
         
         <Separator className="my-4 bg-tech-blue/20" />
         
-        <div className="flex justify-between items-center">
-          <span className="font-medium">Total:</span>
-          <span className="text-xl font-bold text-tech-lightBlue">{formatPrice(totalPrice)}</span>
-        </div>
+        {compatibleGames.length > 0 && (
+          <div className="space-y-3">
+            <div className="flex items-center">
+              <Gamepad className="mr-2 h-4 w-4 text-tech-lightBlue" />
+              <h3 className="font-medium">Juegos Compatibles</h3>
+            </div>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[70%]">Juego</TableHead>
+                  <TableHead>Rendimiento</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {compatibleGames.map((game, index) => (
+                  <TableRow key={index}>
+                    <TableCell>{game.name}</TableCell>
+                    <TableCell>{game.performance}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        )}
       </CardContent>
       <CardFooter className="flex-col space-y-2 pt-2">
         <Button className="w-full bg-tech-blue hover:bg-tech-lightBlue">

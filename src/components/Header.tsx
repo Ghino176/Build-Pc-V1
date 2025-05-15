@@ -3,10 +3,9 @@ import React from 'react';
 import { usePcBuilder } from '@/context/PcBuilderContext';
 import { Button } from '@/components/ui/button';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog';
-import { formatPrice } from '@/lib/utils';
 
 const Header: React.FC = () => {
-  const { totalPrice, resetBuild } = usePcBuilder();
+  const { resetBuild } = usePcBuilder();
 
   return (
     <header className="sticky top-0 z-50 w-full bg-tech-black/90 backdrop-blur-sm border-b border-tech-blue/30">
@@ -19,11 +18,6 @@ const Header: React.FC = () => {
         </div>
         
         <div className="flex items-center space-x-4 mt-2 sm:mt-0">
-          <div className="text-right">
-            <span className="block text-sm text-gray-300">Precio Total:</span>
-            <span className="text-xl font-bold text-tech-lightBlue">{formatPrice(totalPrice)}</span>
-          </div>
-          
           <AlertDialog>
             <AlertDialogTrigger asChild>
               <Button variant="outline" className="border-tech-blue/50 text-tech-blue hover:bg-tech-blue/10">
