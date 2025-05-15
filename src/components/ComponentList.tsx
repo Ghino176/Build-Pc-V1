@@ -21,7 +21,7 @@ const ComponentList: React.FC<ComponentListProps> = ({ category }) => {
   if (components.length === 0) {
     return (
       <div className="py-8 text-center">
-        <p className="text-muted-foreground">No components available in this category.</p>
+        <p className="text-muted-foreground">No hay componentes disponibles en esta categoría.</p>
       </div>
     );
   }
@@ -36,7 +36,7 @@ const ComponentList: React.FC<ComponentListProps> = ({ category }) => {
             onClick={() => removeComponent(category.id)}
             className="border-destructive/30 text-destructive hover:bg-destructive/10"
           >
-            <X className="mr-1 h-4 w-4" /> Remove Selection
+            <X className="mr-1 h-4 w-4" /> Eliminar Selección
           </Button>
         )}
       </div>
@@ -103,11 +103,11 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ component, isSelected, on
         >
           {isSelected ? (
             <>
-              <Check className="mr-1 h-4 w-4" /> Selected
+              <Check className="mr-1 h-4 w-4" /> Seleccionado
             </>
           ) : (
             <>
-              <Plus className="mr-1 h-4 w-4" /> Select
+              <Plus className="mr-1 h-4 w-4" /> Seleccionar
             </>
           )}
         </Button>

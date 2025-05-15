@@ -52,9 +52,9 @@ const CategoryGrid: React.FC = () => {
                     <h3 className="font-medium">{category.name}</h3>
                   </div>
                   {selectedComponent ? (
-                    <Badge className="bg-tech-blue text-white">Selected</Badge>
+                    <Badge className="bg-tech-blue text-white">Seleccionado</Badge>
                   ) : (
-                    <Badge variant="outline" className="text-muted-foreground">Empty</Badge>
+                    <Badge variant="outline" className="text-muted-foreground">Vacío</Badge>
                   )}
                 </div>
                 

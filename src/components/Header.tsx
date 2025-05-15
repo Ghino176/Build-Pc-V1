@@ -20,30 +20,30 @@ const Header: React.FC = () => {
         
         <div className="flex items-center space-x-4 mt-2 sm:mt-0">
           <div className="text-right">
-            <span className="block text-sm text-gray-300">Total Price:</span>
+            <span className="block text-sm text-gray-300">Precio Total:</span>
             <span className="text-xl font-bold text-tech-lightBlue">{formatPrice(totalPrice)}</span>
           </div>
           
           <AlertDialog>
             <AlertDialogTrigger asChild>
               <Button variant="outline" className="border-tech-blue/50 text-tech-blue hover:bg-tech-blue/10">
-                Reset Build
+                Reiniciar Build
               </Button>
             </AlertDialogTrigger>
             <AlertDialogContent className="bg-tech-gray border border-tech-blue/30">
               <AlertDialogHeader>
-                <AlertDialogTitle>Reset Your Build?</AlertDialogTitle>
+                <AlertDialogTitle>¿Reiniciar tu Build?</AlertDialogTitle>
                 <AlertDialogDescription>
-                  This will remove all components from your current build. This action cannot be undone.
+                  Esto eliminará todos los componentes de tu build actual. Esta acción no se puede deshacer.
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
-                <AlertDialogCancel className="bg-muted text-muted-foreground hover:bg-muted/80">Cancel</AlertDialogCancel>
+                <AlertDialogCancel className="bg-muted text-muted-foreground hover:bg-muted/80">Cancelar</AlertDialogCancel>
                 <AlertDialogAction 
                   onClick={resetBuild}
                   className="bg-tech-blue text-white hover:bg-tech-lightBlue"
                 >
-                  Reset
+                  Reiniciar
                 </AlertDialogAction>
               </AlertDialogFooter>
             </AlertDialogContent>

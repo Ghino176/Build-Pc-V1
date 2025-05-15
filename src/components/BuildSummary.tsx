@@ -18,11 +18,11 @@ const BuildSummary: React.FC = () => {
   return (
     <Card className="tech-card sticky top-24">
       <CardHeader>
-        <CardTitle>Build Summary</CardTitle>
+        <CardTitle>Resumen del Build</CardTitle>
       </CardHeader>
       <CardContent className="pb-2">
         <div className="flex justify-between items-center mb-2">
-          <span className="text-sm text-muted-foreground">Completion:</span>
+          <span className="text-sm text-muted-foreground">Completado:</span>
           <span className="text-sm font-medium">{percentageComplete}%</span>
         </div>
         <div className="h-2 bg-muted rounded-full">
@@ -53,7 +53,7 @@ const BuildSummary: React.FC = () => {
                     </Tooltip>
                   </TooltipProvider>
                 ) : (
-                  <span className="text-sm text-muted-foreground italic">Not selected</span>
+                  <span className="text-sm text-muted-foreground italic">No seleccionado</span>
                 )}
               </div>
             );
@@ -69,10 +69,10 @@ const BuildSummary: React.FC = () => {
       </CardContent>
       <CardFooter className="flex-col space-y-2 pt-2">
         <Button className="w-full bg-tech-blue hover:bg-tech-lightBlue">
-          <ShoppingCart className="mr-2 h-4 w-4" /> Save Build
+          <ShoppingCart className="mr-2 h-4 w-4" /> Guardar Build
         </Button>
         <Button variant="outline" className="w-full border-tech-blue/50 text-tech-blue hover:bg-tech-blue/10">
-          <Share2 className="mr-2 h-4 w-4" /> Share Build
+          <Share2 className="mr-2 h-4 w-4" /> Compartir Build
         </Button>
       </CardFooter>
     </Card>

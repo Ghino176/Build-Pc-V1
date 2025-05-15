@@ -19,7 +19,7 @@ const Index = () => {
           <Hero />
           
           <div className="container mx-auto px-4 py-12" id="categories">
-            <h2 className="text-3xl font-bold mb-8">Select Your Components</h2>
+            <h2 className="text-3xl font-bold mb-8">Selecciona Tus Componentes</h2>
             <CategoryGrid />
             
             <div className="mt-16 flex flex-col md:flex-row gap-8">

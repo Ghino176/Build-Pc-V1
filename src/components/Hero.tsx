@@ -14,19 +14,19 @@ const Hero: React.FC = () => {
       
       <div className="container mx-auto px-4 text-center">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-          Build Your <span className="text-tech-lightBlue">Dream PC</span>
+          Construye Tu <span className="text-tech-lightBlue">PC Soñado</span>
         </h1>
         
         <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8">
-          Select high-quality components and create a custom PC tailored to your needs.
+          Selecciona componentes de alta calidad y crea un PC personalizado adaptado a tus necesidades.
         </p>
         
         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
           <Button size="lg" className="bg-tech-blue hover:bg-tech-lightBlue text-white px-8">
-            Start Building
+            Comenzar a Construir
           </Button>
           <Button size="lg" variant="outline" className="border-tech-blue/50 text-tech-blue hover:bg-tech-blue/10">
-            View Popular Builds
+            Ver Builds Populares
           </Button>
         </div>
         
@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
             href="#categories" 
             className="flex flex-col items-center text-muted-foreground hover:text-tech-blue transition-colors"
           >
-            <span className="mb-2">Explore Components</span>
+            <span className="mb-2">Explorar Componentes</span>
             <ArrowDown className="animate-bounce" />
           </a>
         </div>
