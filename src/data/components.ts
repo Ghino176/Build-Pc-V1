@@ -25,31 +25,31 @@ export const componentCategories: ComponentCategory[] = [
   },
   {
     id: "motherboard",
-    name: "Motherboard",
+    name: "Tarjeta Madre",
     description: "Conecta todos los componentes entre sí",
     icon: "pc-case"
   },
   {
     id: "ram",
-    name: "Memory (RAM)",
+    name: "Memoria (RAM)",
     description: "Almacenamiento temporal para aplicaciones en ejecución",
     icon: "memory-stick"
   },
   {
     id: "gpu",
-    name: "Graphics Card",
+    name: "Tarjeta Grafica",
     description: "Renderiza imágenes, video y aplicaciones 3D",
     icon: "monitor"
   },
   {
     id: "storage",
-    name: "Storage",
+    name: "Disco Duro",
     description: "SSDs y HDDs para almacenar tus datos",
     icon: "hard-drive"
   },
   {
     id: "psu",
-    name: "Power Supply",
+    name: "Fuente de Poder",
     description: "Proporciona energía a todos los componentes",
     icon: "pc-case"
   },
@@ -61,7 +61,7 @@ export const componentCategories: ComponentCategory[] = [
   },
   {
     id: "cooling",
-    name: "Cooling",
+    name: "Refrigeración",
     description: "Mantiene tus componentes sin sobrecalentarse",
     icon: "pc-case"
   }
