@@ -4,13 +4,14 @@ import { usePcBuilder } from '@/context/PcBuilderContext';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { ShoppingCart, Share2, Gamepad } from 'lucide-react';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { ShoppingCart, Share2, Gamepad, AlertTriangle } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { componentCategories } from '@/data/components';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
 const BuildSummary: React.FC = () => {
-  const { selectedComponents } = usePcBuilder();
+  const { selectedComponents, compatibilityWarnings } = usePcBuilder();
   
   const totalComponents = Object.keys(selectedComponents).length;
   const percentageComplete = Math.round((totalComponents / componentCategories.length) * 100);
@@ -61,6 +62,19 @@ const BuildSummary: React.FC = () => {
         <CardTitle>Resumen del Build</CardTitle>
       </CardHeader>
       <CardContent className="pb-2">
+        {compatibilityWarnings.length > 0 && (
+          <div className="mb-4 space-y-2">
+            {compatibilityWarnings.map((warning, index) => (
+              <Alert key={index} variant="destructive">
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription className="text-sm">
+                  {warning.message}
+                </AlertDescription>
+              </Alert>
+            ))}
+          </div>
+        )}
+        
         <div className="flex justify-between items-center mb-2">
           <span className="text-sm text-muted-foreground">Completado:</span>
           <span className="text-sm font-medium">{percentageComplete}%</span>
