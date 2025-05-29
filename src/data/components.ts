@@ -106,7 +106,7 @@ export const components: Component[] = [
     name: "AMD Ryzen 5 5600X",
     category: "cpu",
     price: 199.99,
-    image: "https://freebiesupply.com/logos/amd-logo/",
+    image: "https://cdn.thefpsreview.com/wp-content/uploads/2020/10/amd-logo-ruby-red.jpg",
     specs: {
       cores: 6,
       threads: 12,
