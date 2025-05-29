@@ -74,7 +74,7 @@ export const components: Component[] = [
     name: "AMD Ryzen 7 5800X",
     category: "cpu",
     price: 299.99,
-    image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/AMD_Logo.png",
+    image: "https://cdn.freebiesupply.com/logos/large/2x/amd-4-logo-png-transparent.png",
     specs: {
       cores: 8,
       threads: 16,
@@ -106,7 +106,7 @@ export const components: Component[] = [
     name: "AMD Ryzen 5 5600X",
     category: "cpu",
     price: 199.99,
-    image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/AMD_Logo.png",
+    image: "https://freebiesupply.com/logos/amd-logo/",
     specs: {
       cores: 6,
       threads: 12,
