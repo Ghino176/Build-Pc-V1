@@ -124,7 +124,7 @@ export const components: Component[] = [
     name: "ASUS ROG Strix B550-F Gaming",
     category: "motherboard",
     price: 189.99,
-    image: "https://www.pinterest.com/pin/269864202667515746/",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLttU9Xpvkx7Z8M9P78gx4mXOzUHMyX9tSsA&s",
     specs: {
       chipset: "AMD B550",
       formFactor: "ATX",
@@ -156,7 +156,7 @@ export const components: Component[] = [
     name: "Corsair Vengeance RGB Pro 32GB",
     category: "ram",
     price: 149.99,
-    image: "/placeholder.svg",
+    image: "https://images.steamusercontent.com/ugc/959730415480963935/0B658A5F1C1FC894BB10D52E211E6A5F7BBBACB9/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
     specs: {
       capacity: "32GB (2x16GB)",
       type: "DDR4",
@@ -170,7 +170,7 @@ export const components: Component[] = [
     name: "G.Skill Trident Z Neo 16GB",
     category: "ram",
     price: 119.99,
-    image: "/placeholder.svg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUiA8ArpBa9OvMcC-3HpeaoeM2U57pQ_ytyQ&s",
     specs: {
       capacity: "16GB (2x8GB)",
       type: "DDR4",
