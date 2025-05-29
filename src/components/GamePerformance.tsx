@@ -4,8 +4,6 @@ import { usePcBuilder } from '@/context/PcBuilderContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Monitor, Gamepad2 } from 'lucide-react';
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 
 interface GameData {
   name: string;
@@ -73,13 +71,6 @@ const GamePerformance: React.FC = () => {
     veryHigh: Math.round(game.veryHigh * performanceMultiplier)
   }));
   
-  const chartConfig = {
-    minimum: { label: "Mínimo", color: "#10b981" },
-    medium: { label: "Medio", color: "#f59e0b" },
-    high: { label: "Alto", color: "#ef4444" },
-    veryHigh: { label: "Muy Alto", color: "#8b5cf6" }
-  };
-  
   const getPerformanceColor = (fps: number) => {
     if (fps >= 60) return "bg-green-500";
     if (fps >= 30) return "bg-yellow-500";
@@ -118,68 +109,42 @@ const GamePerformance: React.FC = () => {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-6">
-          {/* Performance Overview Chart */}
-          <div className="h-64">
-            <ChartContainer config={chartConfig}>
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={gameData.slice(0, 6)} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-                  <XAxis 
-                    dataKey="name" 
-                    tick={{ fontSize: 10 }}
-                    angle={-45}
-                    textAnchor="end"
-                    height={60}
-                  />
-                  <YAxis tick={{ fontSize: 10 }} />
-                  <ChartTooltip content={<ChartTooltipContent />} />
-                  <Bar dataKey="minimum" fill="var(--color-minimum)" />
-                  <Bar dataKey="medium" fill="var(--color-medium)" />
-                  <Bar dataKey="high" fill="var(--color-high)" />
-                  <Bar dataKey="veryHigh" fill="var(--color-veryHigh)" />
-                </BarChart>
-              </ResponsiveContainer>
-            </ChartContainer>
-          </div>
-          
-          {/* Detailed Game Performance Table */}
-          <div className="space-y-4">
-            <h3 className="font-medium text-lg">Rendimiento Detallado por Juego</h3>
-            <div className="grid gap-3">
-              {gameData.map((game, index) => (
-                <div key={index} className="border border-tech-blue/30 rounded-lg p-4">
-                  <div className="flex justify-between items-center mb-3">
-                    <h4 className="font-medium">{game.name}</h4>
+        <div className="space-y-4">
+          <h3 className="font-medium text-lg">Rendimiento por Juego</h3>
+          <div className="grid gap-3">
+            {gameData.map((game, index) => (
+              <div key={index} className="border border-tech-blue/30 rounded-lg p-4">
+                <div className="flex justify-between items-center mb-3">
+                  <h4 className="font-medium">{game.name}</h4>
+                </div>
+                <div className="grid grid-cols-4 gap-2">
+                  <div className="text-center">
+                    <p className="text-xs text-muted-foreground mb-1">Mínimo</p>
+                    <Badge className={`${getPerformanceColor(game.minimum)} text-white`}>
+                      {game.minimum} FPS
+                    </Badge>
                   </div>
-                  <div className="grid grid-cols-4 gap-2">
-                    <div className="text-center">
-                      <p className="text-xs text-muted-foreground mb-1">Mínimo</p>
-                      <Badge className={`${getPerformanceColor(game.minimum)} text-white`}>
-                        {game.minimum} FPS
-                      </Badge>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-xs text-muted-foreground mb-1">Medio</p>
-                      <Badge className={`${getPerformanceColor(game.medium)} text-white`}>
-                        {game.medium} FPS
-                      </Badge>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-xs text-muted-foreground mb-1">Alto</p>
-                      <Badge className={`${getPerformanceColor(game.high)} text-white`}>
-                        {game.high} FPS
-                      </Badge>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-xs text-muted-foreground mb-1">Muy Alto</p>
-                      <Badge className={`${getPerformanceColor(game.veryHigh)} text-white`}>
-                        {game.veryHigh} FPS
-                      </Badge>
-                    </div>
+                  <div className="text-center">
+                    <p className="text-xs text-muted-foreground mb-1">Medio</p>
+                    <Badge className={`${getPerformanceColor(game.medium)} text-white`}>
+                      {game.medium} FPS
+                    </Badge>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-xs text-muted-foreground mb-1">Alto</p>
+                    <Badge className={`${getPerformanceColor(game.high)} text-white`}>
+                      {game.high} FPS
+                    </Badge>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-xs text-muted-foreground mb-1">Muy Alto</p>
+                    <Badge className={`${getPerformanceColor(game.veryHigh)} text-white`}>
+                      {game.veryHigh} FPS
+                    </Badge>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
           
           <div className="text-sm text-muted-foreground mt-4">
