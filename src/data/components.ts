@@ -276,7 +276,7 @@ export const components: Component[] = [
     name: "Lian Li PC-O11 Dynamic",
     category: "case",
     price: 149.99,
-    image: "/lian li.svg",
+    image: "/lian-li.svg",
     specs: {
       formFactor: "Mid Tower",
       motherboardSupport: "E-ATX, ATX, Micro-ATX, Mini-ITX",
