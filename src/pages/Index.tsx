@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import CategoryGrid from '@/components/CategoryGrid';
 import ComponentList from '@/components/ComponentList';
 import BuildSummary from '@/components/BuildSummary';
+import GamePerformance from '@/components/GamePerformance';
 import Footer from '@/components/Footer';
 import { componentCategories } from '@/data/components';
 import { PcBuilderProvider } from '@/context/PcBuilderContext';
@@ -32,6 +33,11 @@ const Index = () => {
               <div className="md:w-1/4">
                 <BuildSummary />
               </div>
+            </div>
+            
+            {/* Game Performance Section */}
+            <div className="mt-16">
+              <GamePerformance />
             </div>
           </div>
         </main>
