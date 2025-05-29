@@ -37,9 +37,8 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contacto</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>soporte@pcbuilder.com</li>
-              <li>1-800-BUILD-PC</li>
-              <li>123 Calle Tecnología, Silicon Valley</li>
+              <li>ghino176@gmail.com</li>
+              <li>0414-649-4083</li>
             </ul>
           </div>
         </div>
