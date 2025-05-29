@@ -90,7 +90,7 @@ export const components: Component[] = [
     name: "Intel Core i9-12900K",
     category: "cpu",
     price: 589.99,
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY10KWvt29PS7f6vybwxQiZaFaAlDIu0qIow&s",
+    image: "/intel.svg",
     specs: {
       cores: 16,
       threads: 24,
@@ -106,7 +106,7 @@ export const components: Component[] = [
     name: "AMD Ryzen 5 5600X",
     category: "cpu",
     price: 199.99,
-    image: "https://cdn.thefpsreview.com/wp-content/uploads/2020/10/amd-logo-ruby-red.jpg",
+    image: "/ryzen.svg",
     specs: {
       cores: 6,
       threads: 12,
@@ -124,7 +124,7 @@ export const components: Component[] = [
     name: "ASUS ROG Strix B550-F Gaming",
     category: "motherboard",
     price: 189.99,
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLttU9Xpvkx7Z8M9P78gx4mXOzUHMyX9tSsA&s",
+    image: "/asus.svg",
     specs: {
       chipset: "AMD B550",
       formFactor: "ATX",
@@ -139,7 +139,7 @@ export const components: Component[] = [
     name: "MSI MPG Z690 Gaming Edge WiFi",
     category: "motherboard",
     price: 289.99,
-    image: "https://upload.wikimedia.org/wikipedia/commons/1/13/Msi-Logo.jpg",
+    image: "/msi.svg",
     specs: {
       chipset: "Intel Z690",
       formFactor: "ATX",
@@ -156,7 +156,7 @@ export const components: Component[] = [
     name: "Corsair Vengeance RGB Pro 32GB",
     category: "ram",
     price: 149.99,
-    image: "https://images.steamusercontent.com/ugc/959730415480963935/0B658A5F1C1FC894BB10D52E211E6A5F7BBBACB9/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
+    image: "/corsair.svg",
     specs: {
       capacity: "32GB (2x16GB)",
       type: "DDR4",
@@ -170,7 +170,7 @@ export const components: Component[] = [
     name: "G.Skill Trident Z Neo 16GB",
     category: "ram",
     price: 119.99,
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUiA8ArpBa9OvMcC-3HpeaoeM2U57pQ_ytyQ&s",
+    image: "/g.skill.svg",
     specs: {
       capacity: "16GB (2x8GB)",
       type: "DDR4",
@@ -186,7 +186,7 @@ export const components: Component[] = [
     name: "NVIDIA GeForce RTX 3080",
     category: "gpu",
     price: 799.99,
-    image: "/placeholder.svg",
+    image: "/nvidia.svg",
     specs: {
       memory: "10GB GDDR6X",
       coreClock: "1440 MHz",
@@ -200,7 +200,7 @@ export const components: Component[] = [
     name: "AMD Radeon RX 6800 XT",
     category: "gpu",
     price: 649.99,
-    image: "/placeholder.svg",
+    image: "/radeon.svg",
     specs: {
       memory: "16GB GDDR6",
       coreClock: "1825 MHz",
@@ -216,7 +216,7 @@ export const components: Component[] = [
     name: "Samsung 970 EVO Plus 1TB",
     category: "storage",
     price: 129.99,
-    image: "/placeholder.svg",
+    image: "/samsung.svg",
     specs: {
       capacity: "1TB",
       type: "NVMe SSD",
@@ -231,7 +231,7 @@ export const components: Component[] = [
     name: "WD Black 4TB HDD",
     category: "storage",
     price: 149.99,
-    image: "/placeholder.svg",
+    image: "/wd.svg",
     specs: {
       capacity: "4TB",
       type: "HDD",
@@ -248,7 +248,7 @@ export const components: Component[] = [
     name: "Corsair RM850x",
     category: "psu",
     price: 144.99,
-    image: "/placeholder.svg",
+    image: "/corsair.svg",
     specs: {
       wattage: "850W",
       efficiency: "80+ Gold",
@@ -261,7 +261,7 @@ export const components: Component[] = [
     name: "EVGA SuperNOVA 750 G5",
     category: "psu",
     price: 129.99,
-    image: "/placeholder.svg",
+    image: "/evga.svg",
     specs: {
       wattage: "750W",
       efficiency: "80+ Gold",
@@ -276,7 +276,7 @@ export const components: Component[] = [
     name: "Lian Li PC-O11 Dynamic",
     category: "case",
     price: 149.99,
-    image: "/placeholder.svg",
+    image: "/lian li.svg",
     specs: {
       formFactor: "Mid Tower",
       motherboardSupport: "E-ATX, ATX, Micro-ATX, Mini-ITX",
@@ -289,7 +289,7 @@ export const components: Component[] = [
     name: "Fractal Design Meshify 2",
     category: "case",
     price: 139.99,
-    image: "/placeholder.svg",
+    image: "/fractal.svg",
     specs: {
       formFactor: "Mid Tower",
       motherboardSupport: "E-ATX, ATX, Micro-ATX, Mini-ITX",
@@ -304,7 +304,7 @@ export const components: Component[] = [
     name: "NZXT Kraken X63",
     category: "cooling",
     price: 149.99,
-    image: "/placeholder.svg",
+    image: "/nzxt.svg",
     specs: {
       type: "Liquid Cooler",
       radiatorSize: "280mm",
@@ -317,7 +317,7 @@ export const components: Component[] = [
     name: "Noctua NH-D15",
     category: "cooling",
     price: 99.99,
-    image: "/placeholder.svg",
+    image: "/noctua.svg",
     specs: {
       type: "Air Cooler",
       height: "165mm",
