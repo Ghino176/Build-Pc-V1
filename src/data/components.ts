@@ -74,7 +74,7 @@ export const components: Component[] = [
     name: "AMD Ryzen 7 5800X",
     category: "cpu",
     price: 299.99,
-    image: "https://www.flaticon.es/icono-gratis/amd_731984?term=amd&page=1&position=7&origin=search&related_id=731984",
+    image: "https://logowik.com/amd-vector-logo-1-5500.html",
     specs: {
       cores: 8,
       threads: 16,
@@ -90,7 +90,7 @@ export const components: Component[] = [
     name: "Intel Core i9-12900K",
     category: "cpu",
     price: 589.99,
-    image: "https://www.flaticon.es/icono-gratis/intel_1240985?term=intel&page=1&position=2&origin=search&related_id=1240985",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY10KWvt29PS7f6vybwxQiZaFaAlDIu0qIow&s",
     specs: {
       cores: 16,
       threads: 24,
@@ -106,7 +106,7 @@ export const components: Component[] = [
     name: "AMD Ryzen 5 5600X",
     category: "cpu",
     price: 199.99,
-    image: "https://www.flaticon.es/icono-gratis/amd_731984?term=amd&page=1&position=7&origin=search&related_id=731984",
+    image: "https://logowik.com/amd-vector-logo-1-5500.html",
     specs: {
       cores: 6,
       threads: 12,
