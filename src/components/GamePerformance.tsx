@@ -110,7 +110,6 @@ const GamePerformance: React.FC = () => {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          <h3 className="font-medium text-lg">Rendimiento por Juego</h3>
           <div className="grid gap-3">
             {gameData.map((game, index) => (
               <div key={index} className="border border-tech-blue/30 rounded-lg p-4">
