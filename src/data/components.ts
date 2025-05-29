@@ -74,7 +74,7 @@ export const components: Component[] = [
     name: "AMD Ryzen 7 5800X",
     category: "cpu",
     price: 299.99,
-    image: "https://cdn.thefpsreview.com/wp-content/uploads/2020/10/amd-logo-ruby-red.jpg",
+    image: "/ryzen.svg",
     specs: {
       cores: 8,
       threads: 16,
