@@ -124,7 +124,7 @@ export const components: Component[] = [
     name: "ASUS ROG Strix B550-F Gaming",
     category: "motherboard",
     price: 189.99,
-    image: "https://www.flaticon.es/icono-gratis/asus_16183560?term=asus&page=1&position=7&origin=search&related_id=16183560",
+    image: "https://www.pinterest.com/pin/269864202667515746/",
     specs: {
       chipset: "AMD B550",
       formFactor: "ATX",
