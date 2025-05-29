@@ -139,7 +139,7 @@ export const components: Component[] = [
     name: "MSI MPG Z690 Gaming Edge WiFi",
     category: "motherboard",
     price: 289.99,
-    image: "/placeholder.svg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/1/13/Msi-Logo.jpg",
     specs: {
       chipset: "Intel Z690",
       formFactor: "ATX",
