@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import CategoryGrid from '@/components/CategoryGrid';
 import ComponentList from '@/components/ComponentList';
-import ComputerAnimation from '@/components/ComputerAnimation';
+import BuildSummary from '@/components/BuildSummary';
 import GamePerformance from '@/components/GamePerformance';
 import Footer from '@/components/Footer';
 import { componentCategories } from '@/data/components';
@@ -31,7 +31,7 @@ const Index = () => {
               </div>
               
               <div className="md:w-1/4">
-                <ComputerAnimation />
+                <BuildSummary />
               </div>
             </div>
             
