@@ -3,50 +3,19 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { usePcBuilder } from '@/context/PcBuilderContext';
-import { componentCategories } from '@/data/components';
+import { componentCategories, getComponentsByCategory } from '@/data/components';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import UpgradeRecommendations from '@/components/UpgradeRecommendations';
+import ComponentSelection from '@/components/ComponentSelection';
 
 const Upgrades = () => {
   const { selectedComponents } = usePcBuilder();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  // Filter categories that have selected components
-  const upgradeableCategories = componentCategories.filter(
-    category => selectedComponents[category.id]
-  );
-
-  if (upgradeableCategories.length === 0) {
-    return (
-      <div className="min-h-screen bg-tech-darkBlue">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex items-center gap-4 mb-8">
-            <Link to="/">
-              <Button variant="outline" size="sm">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Volver
-              </Button>
-            </Link>
-            <h1 className="text-3xl font-bold">Upgrades de PC</h1>
-          </div>
-
-          <div className="text-center py-16">
-            <h2 className="text-2xl font-semibold mb-4">No tienes componentes seleccionados</h2>
-            <p className="text-muted-foreground mb-8">
-              Primero necesitas seleccionar algunos componentes en el constructor de PC para poder ver recomendaciones de upgrade.
-            </p>
-            <Link to="/">
-              <Button className="bg-tech-blue hover:bg-tech-lightBlue">
-                Ir al Constructor de PC
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  // Get all categories (both with and without selected components)
+  const allCategories = componentCategories;
 
   return (
     <div className="min-h-screen bg-tech-darkBlue">
@@ -64,12 +33,14 @@ const Upgrades = () => {
         {!selectedCategory ? (
           <div>
             <p className="text-muted-foreground mb-8">
-              Selecciona un componente que quieras actualizar para ver recomendaciones personalizadas:
+              Selecciona una categoría para ver o elegir componentes:
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {upgradeableCategories.map((category) => {
+              {allCategories.map((category) => {
                 const component = selectedComponents[category.id];
+                const hasComponent = !!component;
+                
                 return (
                   <Card 
                     key={category.id} 
@@ -79,7 +50,11 @@ const Upgrades = () => {
                     <CardHeader>
                       <CardTitle className="flex items-center justify-between">
                         {category.name}
-                        <Badge variant="outline">{component?.name}</Badge>
+                        {hasComponent ? (
+                          <Badge variant="outline">{component.name}</Badge>
+                        ) : (
+                          <Badge variant="secondary">Sin seleccionar</Badge>
+                        )}
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -87,11 +62,17 @@ const Upgrades = () => {
                         {category.description}
                       </p>
                       <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium">
-                          Precio actual: ${component?.price}
-                        </span>
+                        {hasComponent ? (
+                          <span className="text-sm font-medium">
+                            Precio actual: ${component.price}
+                          </span>
+                        ) : (
+                          <span className="text-sm text-muted-foreground">
+                            No hay componente seleccionado
+                          </span>
+                        )}
                         <Button variant="outline" size="sm">
-                          Ver Upgrades
+                          {hasComponent ? 'Ver Upgrades' : 'Seleccionar'}
                         </Button>
                       </div>
                     </CardContent>
@@ -101,10 +82,18 @@ const Upgrades = () => {
             </div>
           </div>
         ) : (
-          <UpgradeRecommendations 
-            category={selectedCategory}
-            onBack={() => setSelectedCategory(null)}
-          />
+          // Show either upgrade recommendations or component selection
+          selectedComponents[selectedCategory] ? (
+            <UpgradeRecommendations 
+              category={selectedCategory}
+              onBack={() => setSelectedCategory(null)}
+            />
+          ) : (
+            <ComponentSelection
+              category={selectedCategory}
+              onBack={() => setSelectedCategory(null)}
+            />
+          )
         )}
       </div>
     </div>
