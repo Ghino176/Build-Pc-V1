@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
             <Button size="lg" className="bg-tech-blue hover:bg-tech-lightBlue text-white px-8">
-              Comenzar a Construir
+                <a href="#categories">Comenzar a Construir</a>              
             </Button>
             <Button size="lg" variant="outline" className="border-tech-blue/50 text-tech-blue hover:bg-tech-blue/10">
               Ver Builds Populares
