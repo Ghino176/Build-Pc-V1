@@ -22,10 +22,10 @@ const ThemeToggle = () => {
     // Apply theme to document
     if (isDark) {
       document.documentElement.classList.add('dark');
-      document.body.style.backgroundColor = '#1a2b4b';
+      document.documentElement.classList.remove('light');
     } else {
       document.documentElement.classList.remove('dark');
-      document.body.style.backgroundColor = '#ffffff';
+      document.documentElement.classList.add('light');
     }
     
     // Store preference

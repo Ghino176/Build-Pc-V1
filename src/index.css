@@ -92,6 +92,10 @@
     @apply bg-background text-foreground transition-colors duration-300;
   }
 
+  .light {
+    background-color: white !important;
+  }
+
   .dark body {
     @apply bg-tech-darkBlue;
   }
