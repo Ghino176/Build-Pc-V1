@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
@@ -9,8 +8,8 @@ const Hero: React.FC = () => {
       {/* Background image */}
       <div className="absolute inset-0 -z-10">
         <img 
-          src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&h=1080&fit=crop&crop=center"
-          alt="Circuito de computadora con componentes tecnológicos"
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&h=1080&fit=crop&crop=center"
+          alt="Escritorio con código de programación y tecnología"
           className="w-full h-full object-cover opacity-20"
         />
         {/* Dark overlay for better text readability */}
