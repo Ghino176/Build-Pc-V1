@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Monitor, Wrench } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   return (
@@ -24,6 +25,7 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center space-x-4">
+            <ThemeToggle />
             <Link to="/upgrades">
               <Button variant="outline" size="sm" className="hidden md:flex">
                 <Wrench className="h-4 w-4 mr-2" />

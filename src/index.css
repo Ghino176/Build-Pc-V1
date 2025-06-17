@@ -45,12 +45,55 @@
     --sidebar-ring: 224 76% 48%;
   }
 
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 4.9%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 196 100% 50%;
+    --accent-foreground: 222 84% 4.9%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 224 76% 48%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217 10% 64.9%;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-tech-darkBlue text-foreground;
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-tech-darkBlue;
   }
 
   /* Custom scrollbar */
@@ -60,7 +103,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-tech-darkBlue;
+    @apply bg-background;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -74,7 +117,7 @@
 
 @layer components {
   .tech-card {
-    @apply bg-tech-gray border border-tech-blue/30 rounded-lg p-4 transition-all hover:border-tech-blue hover:shadow-md hover:shadow-tech-blue/20;
+    @apply bg-card border border-tech-blue/30 rounded-lg p-4 transition-all hover:border-tech-blue hover:shadow-md hover:shadow-tech-blue/20;
   }
 
   .tech-button {
@@ -82,7 +125,7 @@
   }
 
   .tech-input {
-    @apply bg-tech-gray border border-tech-blue/30 rounded-md px-3 py-2 focus:outline-none focus:border-tech-blue/80 focus:ring-1 focus:ring-tech-blue/50;
+    @apply bg-input border border-tech-blue/30 rounded-md px-3 py-2 focus:outline-none focus:border-tech-blue/80 focus:ring-1 focus:ring-tech-blue/50;
   }
 
   .glow-border {
