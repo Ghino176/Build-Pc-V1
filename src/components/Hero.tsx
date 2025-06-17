@@ -1,19 +1,24 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  console.log('Hero component rendering');
+  
   return (
-    <div className="relative py-16 md:py-24 overflow-hidden">
+    <div className="relative py-16 md:py-24 overflow-hidden min-h-[600px]">
       {/* Background image */}
       <div className="absolute inset-0 -z-10">
         <img 
           src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&h=1080&fit=crop&crop=center"
           alt="Escritorio con código de programación y tecnología"
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-30"
+          onLoad={() => console.log('Background image loaded successfully')}
+          onError={(e) => console.error('Failed to load background image:', e)}
         />
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-tech-darkBlue/80"></div>
+        <div className="absolute inset-0 bg-tech-darkBlue/70"></div>
       </div>
       
       {/* Background elements */}
