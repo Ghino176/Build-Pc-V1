@@ -4,7 +4,7 @@ import { Separator } from '@/components/ui/separator';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="mt-16 pt-8 pb-8 bg-tech-black">
+    <footer className="mt-16 pt-8 pb-8 bg-muted">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
-        <Separator className="my-8 bg-tech-blue/20" />
+        <Separator className="my-8 bg-border" />
         
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} PC Builder. Todos los derechos reservados.</p>

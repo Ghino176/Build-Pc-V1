@@ -7,7 +7,7 @@ import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   return (
-    <header className="bg-tech-darkBlue/95 backdrop-blur-sm border-b border-tech-blue/20 sticky top-0 z-50">
+    <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
@@ -16,10 +16,10 @@ const Header = () => {
           </Link>
           
           <nav className="hidden md:flex items-center space-x-6">
-            <Link to="/" className="text-muted-foreground hover:text-white transition-colors">
+            <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">
               Constructor
             </Link>
-            <Link to="/upgrades" className="text-muted-foreground hover:text-white transition-colors">
+            <Link to="/upgrades" className="text-muted-foreground hover:text-foreground transition-colors">
               Upgrades
             </Link>
           </nav>

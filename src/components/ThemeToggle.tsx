@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Sun, Moon } from 'lucide-react';
 
 const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     // Check if user has a preference stored or system preference
@@ -14,7 +14,7 @@ const ThemeToggle = () => {
     if (stored) {
       setIsDark(stored === 'dark');
     } else {
-      setIsDark(prefersDark);
+      setIsDark(false); // Default to light mode
     }
   }, []);
 

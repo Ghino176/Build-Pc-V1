@@ -11,7 +11,7 @@ import { componentCategories } from '@/data/components';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-tech-darkBlue">
+    <div className="min-h-screen bg-background">
       <Header />
       
       <main>
