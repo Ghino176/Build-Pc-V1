@@ -189,6 +189,14 @@ const Compatibility = () => {
                         el cooler del CPU sea compatible con el socket y altura del case.
                       </p>
                     </div>
+
+                    <div className="p-4 bg-tech-blue/10 rounded-lg border border-tech-blue/30">
+                      <h4 className="font-semibold text-foreground mb-2">🌡️ Gestión Térmica</h4>
+                      <p className="text-muted-foreground">
+                        Verifica que el case tenga suficiente flujo de aire y que 
+                        el cooler del CPU sea compatible con el socket y altura del case.
+                      </p>
+                    </div>
                     
                     <div className="p-4 bg-tech-blue/10 rounded-lg border border-tech-blue/30">
                       <h4 className="font-semibold text-foreground mb-2">📏 Dimensiones Físicas</h4>
