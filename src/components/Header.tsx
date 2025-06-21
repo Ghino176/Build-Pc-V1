@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Monitor, Wrench } from 'lucide-react';
+import { Monitor, Wrench, Shield } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
@@ -22,10 +22,19 @@ const Header = () => {
             <Link to="/upgrades" className="text-muted-foreground hover:text-foreground transition-colors">
               Upgrades
             </Link>
+            <Link to="/compatibility" className="text-muted-foreground hover:text-foreground transition-colors">
+              Compatibilidad
+            </Link>
           </nav>
 
           <div className="flex items-center space-x-4">
             <ThemeToggle />
+            <Link to="/compatibility">
+              <Button variant="outline" size="sm" className="hidden md:flex">
+                <Shield className="h-4 w-4 mr-2" />
+                Compatibilidad
+              </Button>
+            </Link>
             <Link to="/upgrades">
               <Button variant="outline" size="sm" className="hidden md:flex">
                 <Wrench className="h-4 w-4 mr-2" />

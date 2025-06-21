@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PcBuilderProvider } from "@/context/PcBuilderContext";
 import Index from "./pages/Index";
 import Upgrades from "./pages/Upgrades";
+import Compatibility from "./pages/Compatibility";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/upgrades" element={<Upgrades />} />
+            <Route path="/compatibility" element={<Compatibility />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
