@@ -1,31 +1,18 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
-
 const Hero: React.FC = () => {
   console.log('Hero component rendering');
-  
-  return (
-    <div className="relative py-16 md:py-24 overflow-hidden min-h-[600px]">
+  return <div className="relative py-16 md:py-24 overflow-hidden min-h-[600px]">
       {/* Background image */}
       <div className="absolute inset-0 -z-10">
-        <img 
-          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&h=1080&fit=crop&crop=center"
-          alt="Escritorio con código de programación y tecnología"
-          className="w-full h-full object-cover opacity-30"
-          onLoad={() => console.log('Background image loaded successfully')}
-          onError={(e) => console.error('Failed to load background image:', e)}
-        />
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&h=1080&fit=crop&crop=center" alt="Escritorio con código de programación y tecnología" className="w-full h-full object-cover opacity-30" onLoad={() => console.log('Background image loaded successfully')} onError={e => console.error('Failed to load background image:', e)} />
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-tech-darkBlue/70"></div>
       </div>
       
       {/* Background elements */}
-      <div className="absolute inset-0 -z-5 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-tech-blue opacity-10 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tech-lightBlue opacity-10 rounded-full filter blur-3xl"></div>
-      </div>
+      
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center">
@@ -47,18 +34,13 @@ const Hero: React.FC = () => {
           </div>
           
           <div className="flex justify-center">
-            <a 
-              href="#categories" 
-              className="flex flex-col items-center text-muted-foreground hover:text-tech-blue transition-colors"
-            >
+            <a href="#categories" className="flex flex-col items-center text-muted-foreground hover:text-tech-blue transition-colors">
               <span className="mb-2">Explorar Componentes</span>
               <ArrowDown className="animate-bounce" />
             </a>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Hero;
