@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
@@ -31,7 +30,7 @@ const Upgrades = () => {
   const totalPrice = Object.values(selectedComponents).reduce((sum, component) => sum + component.price, 0);
 
   return (
-    <div className="min-h-screen bg-tech-darkBlue">
+    <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center gap-4 mb-8">
           <Link to="/">
@@ -40,7 +39,7 @@ const Upgrades = () => {
               Volver
             </Button>
           </Link>
-          <h1 className="text-3xl font-bold">Selección de Componentes</h1>
+          <h1 className="text-3xl font-bold text-foreground">Selección de Componentes</h1>
         </div>
 
         {!selectedCategory ? (
@@ -51,7 +50,7 @@ const Upgrades = () => {
               </p>
               {Object.keys(selectedComponents).length > 0 && (
                 <div className="text-right">
-                  <p className="text-lg font-semibold">
+                  <p className="text-lg font-semibold text-foreground">
                     Total: {formatPrice(totalPrice)}
                   </p>
                   <p className="text-sm text-muted-foreground">
@@ -73,7 +72,7 @@ const Upgrades = () => {
                     onClick={() => setSelectedCategory(category.id)}
                   >
                     <CardHeader>
-                      <CardTitle className="flex items-center justify-between">
+                      <CardTitle className="flex items-center justify-between text-foreground">
                         {category.name}
                         {hasComponent ? (
                           <Badge variant="outline">{component.name}</Badge>
@@ -88,7 +87,7 @@ const Upgrades = () => {
                       </p>
                       <div className="flex items-center justify-between">
                         {hasComponent ? (
-                          <span className="text-sm font-medium">
+                          <span className="text-sm font-medium text-foreground">
                             Precio: {formatPrice(component.price)}
                           </span>
                         ) : (
@@ -122,12 +121,12 @@ const Upgrades = () => {
 
             {Object.keys(selectedComponents).length > 0 && (
               <div className="mt-12">
-                <h2 className="text-2xl font-bold mb-6">Componentes Seleccionados</h2>
+                <h2 className="text-2xl font-bold mb-6 text-foreground">Componentes Seleccionados</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {Object.values(selectedComponents).map((component) => (
                     <Card key={component.id} className="tech-card">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-lg">{component.name}</CardTitle>
+                        <CardTitle className="text-lg text-foreground">{component.name}</CardTitle>
                       </CardHeader>
                       <CardContent className="space-y-4">
                         <div className="aspect-video bg-muted rounded-md flex items-center justify-center">
@@ -194,7 +193,7 @@ const ComponentSelection: React.FC<ComponentSelectionProps> = ({ category, onBac
           Volver
         </Button>
         <div>
-          <h2 className="text-2xl font-bold">Seleccionar {categoryInfo.name}</h2>
+          <h2 className="text-2xl font-bold text-foreground">Seleccionar {categoryInfo.name}</h2>
           <p className="text-muted-foreground">
             Elige un componente de esta categoría
           </p>
@@ -223,7 +222,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ component, onSelect }) =>
   return (
     <Card className="tech-card h-full">
       <CardHeader className="pb-2">
-        <CardTitle className="text-lg">{component.name}</CardTitle>
+        <CardTitle className="text-lg text-foreground">{component.name}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="aspect-video bg-muted rounded-md flex items-center justify-center">
@@ -236,7 +235,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ component, onSelect }) =>
 
         <div className="space-y-2">
           <div className="flex justify-between items-center">
-            <span className="text-sm font-medium">Precio:</span>
+            <span className="text-sm font-medium text-foreground">Precio:</span>
             <Badge className="bg-tech-blue">{formatPrice(component.price)}</Badge>
           </div>
         </div>
@@ -247,7 +246,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ component, onSelect }) =>
           {Object.entries(component.specs).slice(0, 3).map(([key, value]) => (
             <div key={key} className="text-xs flex justify-between">
               <span className="text-muted-foreground">{key}:</span>
-              <span className="font-medium">{value}</span>
+              <span className="font-medium text-foreground">{value}</span>
             </div>
           ))}
         </div>
