@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { componentCategories, getComponentsByCategory, Component } from '@/data/components';
@@ -98,7 +99,7 @@ const Upgrades = () => {
                         <div className="flex gap-2">
                           {hasComponent && (
                             <Button 
-                              variant="outline" 
+                              variant="outline"
                               size="sm"
                               onClick={(e) => {
                                 e.stopPropagation();
@@ -172,18 +173,42 @@ interface ComponentSelectionProps {
 }
 
 const ComponentSelection: React.FC<ComponentSelectionProps> = ({ category, onBack, onSelect }) => {
-  const allComponents = getComponentsByCategory(category);
+  const [components, setComponents] = useState<Component[]>([]);
+  const [loading, setLoading] = useState(true);
   const categoryInfo = componentCategories.find(cat => cat.id === category);
+
+  useEffect(() => {
+    const fetchComponents = async () => {
+      setLoading(true);
+      try {
+        const fetchedComponents = await getComponentsByCategory(category);
+        setComponents(fetchedComponents.sort((a, b) => a.price - b.price));
+      } catch (error) {
+        console.error('Error fetching components:', error);
+        setComponents([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchComponents();
+  }, [category]);
 
   if (!categoryInfo) {
     return null;
   }
 
-  const sortedComponents = allComponents.sort((a, b) => a.price - b.price);
-
   const handleSelectComponent = (component: Component) => {
     onSelect(component);
   };
+
+  if (loading) {
+    return (
+      <div className="py-8 text-center">
+        <p className="text-muted-foreground">Cargando componentes...</p>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -201,7 +226,7 @@ const ComponentSelection: React.FC<ComponentSelectionProps> = ({ category, onBac
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sortedComponents.map((component) => (
+        {components.map((component) => (
           <ComponentCard 
             key={component.id}
             component={component}

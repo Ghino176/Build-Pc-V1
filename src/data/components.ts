@@ -1,5 +1,5 @@
 
-import { ComponentData, getComponentsByCategory, getAllComponents } from '@/services/componentService';
+import { ComponentData, getComponentsByCategory as getComponentsByCategoryFromDB, getAllComponents } from '@/services/componentService';
 
 export interface Component {
   id: string;
@@ -167,7 +167,7 @@ const transformComponent = (dbComponent: ComponentData, category: string): Compo
 
 // Función auxiliar para obtener componentes por categoría
 export const getComponentsByCategory = async (category: string): Promise<Component[]> => {
-  const dbComponents = await getComponentsByCategory(category as any);
+  const dbComponents = await getComponentsByCategoryFromDB(category as any);
   return dbComponents.map(component => transformComponent(component, category));
 };
 

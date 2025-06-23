@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { usePcBuilder } from '@/context/PcBuilderContext';
 import { getComponentsByCategory, componentCategories, Component } from '@/data/components';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -15,20 +15,43 @@ interface ComponentSelectionProps {
 
 const ComponentSelection: React.FC<ComponentSelectionProps> = ({ category, onBack }) => {
   const { selectComponent } = usePcBuilder();
-  const allComponents = getComponentsByCategory(category);
+  const [components, setComponents] = useState<Component[]>([]);
+  const [loading, setLoading] = useState(true);
   const categoryInfo = componentCategories.find(cat => cat.id === category);
+
+  useEffect(() => {
+    const fetchComponents = async () => {
+      setLoading(true);
+      try {
+        const fetchedComponents = await getComponentsByCategory(category);
+        setComponents(fetchedComponents.sort((a, b) => a.price - b.price));
+      } catch (error) {
+        console.error('Error fetching components:', error);
+        setComponents([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchComponents();
+  }, [category]);
 
   if (!categoryInfo) {
     return null;
   }
 
-  // Sort components by price
-  const sortedComponents = allComponents.sort((a, b) => a.price - b.price);
-
   const handleSelectComponent = (component: Component) => {
     selectComponent(component);
     onBack(); // Go back to the main upgrades view
   };
+
+  if (loading) {
+    return (
+      <div className="py-8 text-center">
+        <p className="text-muted-foreground">Cargando componentes...</p>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -46,7 +69,7 @@ const ComponentSelection: React.FC<ComponentSelectionProps> = ({ category, onBac
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sortedComponents.map((component) => (
+        {components.map((component) => (
           <ComponentCard 
             key={component.id}
             component={component}

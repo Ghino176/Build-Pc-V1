@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Component, ComponentCategory, getComponentsByCategory } from '@/data/components';
 import { usePcBuilder } from '@/context/PcBuilderContext';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -15,8 +15,34 @@ interface ComponentListProps {
 
 const ComponentList: React.FC<ComponentListProps> = ({ category }) => {
   const { selectComponent, removeComponent, selectedComponents, isComponentSelected } = usePcBuilder();
-  const components = getComponentsByCategory(category.id);
+  const [components, setComponents] = useState<Component[]>([]);
+  const [loading, setLoading] = useState(true);
   const selectedComponent = selectedComponents[category.id];
+
+  useEffect(() => {
+    const fetchComponents = async () => {
+      setLoading(true);
+      try {
+        const fetchedComponents = await getComponentsByCategory(category.id);
+        setComponents(fetchedComponents);
+      } catch (error) {
+        console.error('Error fetching components:', error);
+        setComponents([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchComponents();
+  }, [category.id]);
+
+  if (loading) {
+    return (
+      <div className="py-8 text-center">
+        <p className="text-muted-foreground">Cargando componentes...</p>
+      </div>
+    );
+  }
 
   if (components.length === 0) {
     return (

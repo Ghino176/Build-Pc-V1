@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { usePcBuilder } from '@/context/PcBuilderContext';
 import { getComponentsByCategory, componentCategories, Component } from '@/data/components';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -15,16 +15,44 @@ interface UpgradeRecommendationsProps {
 
 const UpgradeRecommendations: React.FC<UpgradeRecommendationsProps> = ({ category, onBack }) => {
   const { selectedComponents, selectComponent } = usePcBuilder();
+  const [components, setComponents] = useState<Component[]>([]);
+  const [loading, setLoading] = useState(true);
   const currentComponent = selectedComponents[category];
-  const allComponents = getComponentsByCategory(category);
   const categoryInfo = componentCategories.find(cat => cat.id === category);
+
+  useEffect(() => {
+    const fetchComponents = async () => {
+      if (!currentComponent) return;
+      
+      setLoading(true);
+      try {
+        const fetchedComponents = await getComponentsByCategory(category);
+        setComponents(fetchedComponents);
+      } catch (error) {
+        console.error('Error fetching components:', error);
+        setComponents([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchComponents();
+  }, [category, currentComponent]);
 
   if (!currentComponent || !categoryInfo) {
     return null;
   }
 
+  if (loading) {
+    return (
+      <div className="py-8 text-center">
+        <p className="text-muted-foreground">Cargando opciones de upgrade...</p>
+      </div>
+    );
+  }
+
   // Filter out the current component and sort by price
-  const upgradeOptions = allComponents
+  const upgradeOptions = components
     .filter(component => component.id !== currentComponent.id)
     .sort((a, b) => a.price - b.price);
 
@@ -34,27 +62,6 @@ const UpgradeRecommendations: React.FC<UpgradeRecommendationsProps> = ({ categor
   const similarPrice = upgradeOptions.filter(comp => 
     Math.abs(comp.price - currentComponent.price) <= 50 && comp.price !== currentComponent.price
   );
-
-  const getUpgradeType = (component: Component): 'upgrade' | 'downgrade' | 'similar' => {
-    if (component.price > currentComponent.price + 50) return 'upgrade';
-    if (component.price < currentComponent.price - 50) return 'downgrade';
-    return 'similar';
-  };
-
-  const getUpgradeIcon = (type: 'upgrade' | 'downgrade' | 'similar') => {
-    switch (type) {
-      case 'upgrade': return <TrendingUp className="h-4 w-4 text-green-500" />;
-      case 'downgrade': return <TrendingDown className="h-4 w-4 text-red-500" />;
-      case 'similar': return <Minus className="h-4 w-4 text-yellow-500" />;
-    }
-  };
-
-  const getPriceDifference = (component: Component): string => {
-    const diff = component.price - currentComponent.price;
-    if (diff > 0) return `+${formatPrice(diff)}`;
-    if (diff < 0) return formatPrice(diff);
-    return formatPrice(0);
-  };
 
   const getCompatibilityNote = (): string => {
     if (category === 'cpu') {
