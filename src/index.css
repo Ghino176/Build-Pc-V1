@@ -121,7 +121,7 @@
 
 @layer components {
   .tech-card {
-    @apply bg-card border border-tech-blue/30 rounded-lg p-4 transition-all hover:border-tech-blue hover:shadow-md hover:shadow-tech-blue/20;
+    @apply bg-card/90 backdrop-blur-sm border border-tech-blue/20 rounded-lg p-4 transition-all hover:border-tech-blue hover:shadow-lg hover:shadow-tech-blue/10;
   }
 
   .tech-button {
@@ -133,6 +133,6 @@
   }
 
   .glow-border {
-    @apply border border-tech-blue/50 shadow-md shadow-tech-blue/20;
+    @apply border border-tech-blue/50 shadow-lg shadow-tech-blue/20 backdrop-blur-md;
   }
 }

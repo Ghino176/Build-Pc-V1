@@ -32,7 +32,7 @@ const CategoryGrid: React.FC = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 backdrop-blur-sm bg-background/30 p-6 rounded-xl border border-white/20 shadow-xl">
       {componentCategories.map((category) => {
         const selectedComponent = selectedComponents[category.id];
         
@@ -42,7 +42,7 @@ const CategoryGrid: React.FC = () => {
             href={`#${category.id}`} 
             className="block"
           >
-            <Card className={`h-full tech-card transition-transform hover:-translate-y-1 ${selectedComponent ? 'glow-border' : ''}`}>
+            <Card className={`h-full tech-card transition-transform hover:-translate-y-1 backdrop-blur-md bg-card/80 border-border/30 shadow-lg ${selectedComponent ? 'glow-border' : ''}`}>
               <CardContent className="flex flex-col h-full p-4">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-2">
