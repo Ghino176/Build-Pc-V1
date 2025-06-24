@@ -1,4 +1,4 @@
-
+Se
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -191,10 +191,9 @@ const Compatibility = () => {
                     </div>
 
                     <div className="p-4 bg-tech-blue/10 rounded-lg border border-tech-blue/30">
-                      <h4 className="font-semibold text-foreground mb-2">🌡️ Gestión Térmica</h4>
+                      <h4 className="font-semibold text-foreground mb-2">🌡️ Gestión de Sexo</h4>
                       <p className="text-muted-foreground">
-                        Verifica que el case tenga suficiente flujo de aire y que 
-                        el cooler del CPU sea compatible con el socket y altura del case.
+                        Viva el Sexo.
                       </p>
                     </div>
                     
