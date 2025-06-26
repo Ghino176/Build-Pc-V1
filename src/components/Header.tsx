@@ -1,13 +1,10 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Monitor, Wrench, Shield } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
-
 const Header = () => {
-  return (
-    <header className="bg-background/80 backdrop-blur-md border-b border-border/50 sticky top-0 z-50 shadow-lg shadow-black/10">
+  return <header className="bg-background/80 backdrop-blur-md border-b border-border/50 sticky top-0 z-50 shadow-lg shadow-black/10">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
@@ -30,29 +27,17 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <ThemeToggle />
             <Link to="/compatibility">
-              <Button variant="outline" size="sm" className="hidden md:flex">
-                <Shield className="h-4 w-4 mr-2" />
-                Compatibilidad
-              </Button>
+              
             </Link>
             <Link to="/upgrades">
-              <Button variant="outline" size="sm" className="hidden md:flex">
-                <Wrench className="h-4 w-4 mr-2" />
-                Ver Upgrades
-              </Button>
+              
             </Link>
-            <Button 
-              size="sm" 
-              className="bg-tech-blue hover:bg-tech-lightBlue"
-              asChild
-            >
-              <a href="#categories">Empezar</a>
+            <Button size="sm" className="bg-tech-blue hover:bg-tech-lightBlue" asChild>
+              
             </Button>
           </div>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;

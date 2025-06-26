@@ -1,20 +1,13 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Zap, Shield } from 'lucide-react';
-
 const Hero: React.FC = () => {
   console.log('Hero component rendering');
-  
-  return (
-    <div className="relative w-full h-screen -mt-20 pt-20 flex items-center justify-center overflow-hidden">
+  return <div className="relative w-full h-screen -mt-20 pt-20 flex items-center justify-center overflow-hidden">
       {/* Background Image with Reduced Opacity */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
-        style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&h=1080&fit=crop&crop=center')"
-        }}
-      />
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30" style={{
+      backgroundImage: "url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&h=1080&fit=crop&crop=center')"
+    }} />
       
       {/* Dark Overlay for Better Text Readability */}
       <div className="absolute inset-0 bg-black/20" />
@@ -31,27 +24,15 @@ const Hero: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button 
-              size="lg" 
-              className="bg-tech-blue hover:bg-tech-lightBlue text-white px-8 py-4 text-lg"
-              asChild
-            >
+            <Button size="lg" className="bg-tech-blue hover:bg-tech-lightBlue text-white px-8 py-4 text-lg" asChild>
               <a href="#categories" className="flex items-center">
                 Empezar a Construir
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
             </Button>
             
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-tech-blue text-tech-blue hover:bg-tech-blue hover:text-white px-8 py-4 text-lg"
-              asChild
-            >
-              <a href="#compatibility" className="flex items-center">
-                <Shield className="mr-2 h-5 w-5" />
-                Verificar Compatibilidad
-              </a>
+            <Button variant="outline" size="lg" className="border-tech-blue text-tech-blue hover:bg-tech-blue hover:text-white px-8 py-4 text-lg" asChild>
+              
             </Button>
           </div>
           
@@ -89,8 +70,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Hero;
