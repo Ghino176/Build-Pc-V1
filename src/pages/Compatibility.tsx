@@ -1,56 +1,87 @@
-
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { CheckCircle, XCircle, AlertTriangle, Cpu, Monitor, HardDrive, Zap } from 'lucide-react';
-
 const Compatibility = () => {
-  const compatibilityRules = [
-    {
-      title: "CPU y Tarjeta Madre",
-      icon: <Cpu className="h-8 w-8 text-tech-blue" />,
-      description: "El socket del procesador debe coincidir con el socket de la tarjeta madre",
-      examples: [
-        { cpu: "AMD Ryzen 7 5800X", socket: "AM4", compatible: "ASUS ROG Strix B550-F", status: "compatible" },
-        { cpu: "Intel Core i9-12900K", socket: "LGA 1700", compatible: "MSI MPG Z690", status: "compatible" },
-        { cpu: "AMD Ryzen 7 5800X", socket: "AM4", compatible: "MSI MPG Z690", status: "incompatible" }
-      ]
-    },
-    {
-      title: "Memoria RAM",
-      icon: <HardDrive className="h-8 w-8 text-tech-blue" />,
-      description: "La memoria debe ser compatible con la tarjeta madre y el procesador",
-      examples: [
-        { component: "DDR4-3600", compatible: "Tarjetas madre B550/X570", status: "compatible" },
-        { component: "DDR5-5600", compatible: "Tarjetas madre Z690/B660", status: "compatible" },
-        { component: "DDR4-3600", compatible: "Tarjetas madre Z690", status: "warning" }
-      ]
-    },
-    {
-      title: "Tarjeta Gráfica",
-      icon: <Monitor className="h-8 w-8 text-tech-blue" />,
-      description: "Espacio en el case y alimentación suficiente",
-      examples: [
-        { component: "RTX 3080", requirement: "750W PSU mínimo", status: "compatible" },
-        { component: "RX 6800 XT", requirement: "650W PSU mínimo", status: "compatible" },
-        { component: "RTX 4090", requirement: "850W PSU + espacio 320mm", status: "warning" }
-      ]
-    },
-    {
-      title: "Fuente de Poder",
-      icon: <Zap className="h-8 w-8 text-tech-blue" />,
-      description: "Debe proporcionar suficiente energía para todos los componentes",
-      examples: [
-        { build: "Gaming básico", wattage: "550W", status: "compatible" },
-        { build: "Gaming alto rendimiento", wattage: "750W", status: "compatible" },
-        { build: "Workstation extrema", wattage: "1000W+", status: "warning" }
-      ]
-    }
-  ];
-
-  const StatusIcon = ({ status }: { status: string }) => {
+  const compatibilityRules = [{
+    title: "CPU y Tarjeta Madre",
+    icon: <Cpu className="h-8 w-8 text-tech-blue" />,
+    description: "El socket del procesador debe coincidir con el socket de la tarjeta madre",
+    examples: [{
+      cpu: "AMD Ryzen 7 5800X",
+      socket: "AM4",
+      compatible: "ASUS ROG Strix B550-F",
+      status: "compatible"
+    }, {
+      cpu: "Intel Core i9-12900K",
+      socket: "LGA 1700",
+      compatible: "MSI MPG Z690",
+      status: "compatible"
+    }, {
+      cpu: "AMD Ryzen 7 5800X",
+      socket: "AM4",
+      compatible: "MSI MPG Z690",
+      status: "incompatible"
+    }]
+  }, {
+    title: "Memoria RAM",
+    icon: <HardDrive className="h-8 w-8 text-tech-blue" />,
+    description: "La memoria debe ser compatible con la tarjeta madre y el procesador",
+    examples: [{
+      component: "DDR4-3600",
+      compatible: "Tarjetas madre B550/X570",
+      status: "compatible"
+    }, {
+      component: "DDR5-5600",
+      compatible: "Tarjetas madre Z690/B660",
+      status: "compatible"
+    }, {
+      component: "DDR4-3600",
+      compatible: "Tarjetas madre Z690",
+      status: "warning"
+    }]
+  }, {
+    title: "Tarjeta Gráfica",
+    icon: <Monitor className="h-8 w-8 text-tech-blue" />,
+    description: "Espacio en el case y alimentación suficiente",
+    examples: [{
+      component: "RTX 3080",
+      requirement: "750W PSU mínimo",
+      status: "compatible"
+    }, {
+      component: "RX 6800 XT",
+      requirement: "650W PSU mínimo",
+      status: "compatible"
+    }, {
+      component: "RTX 4090",
+      requirement: "850W PSU + espacio 320mm",
+      status: "warning"
+    }]
+  }, {
+    title: "Fuente de Poder",
+    icon: <Zap className="h-8 w-8 text-tech-blue" />,
+    description: "Debe proporcionar suficiente energía para todos los componentes",
+    examples: [{
+      build: "Gaming básico",
+      wattage: "550W",
+      status: "compatible"
+    }, {
+      build: "Gaming alto rendimiento",
+      wattage: "750W",
+      status: "compatible"
+    }, {
+      build: "Workstation extrema",
+      wattage: "1000W+",
+      status: "warning"
+    }]
+  }];
+  const StatusIcon = ({
+    status
+  }: {
+    status: string;
+  }) => {
     switch (status) {
       case 'compatible':
         return <CheckCircle className="h-5 w-5 text-green-500" />;
@@ -62,9 +93,7 @@ const Compatibility = () => {
         return null;
     }
   };
-
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Header />
       
       <main className="container mx-auto px-4 py-12">
@@ -83,14 +112,13 @@ const Compatibility = () => {
         <Tabs defaultValue="rules" className="space-y-8">
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="rules">Reglas de Compatibilidad</TabsTrigger>
-            <TabsTrigger value="checker">Verificador</TabsTrigger>
+            
             <TabsTrigger value="tips">Consejos Avanzados</TabsTrigger>
           </TabsList>
 
           <TabsContent value="rules" className="space-y-8">
             <div className="grid gap-6 md:grid-cols-2">
-              {compatibilityRules.map((rule, index) => (
-                <Card key={index} className="tech-card">
+              {compatibilityRules.map((rule, index) => <Card key={index} className="tech-card">
                   <CardHeader>
                     <div className="flex items-center space-x-3">
                       {rule.icon}
@@ -102,33 +130,24 @@ const Compatibility = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3">
-                      {rule.examples.map((example, exampleIndex) => (
-                        <div key={exampleIndex} className="flex items-center justify-between p-3 bg-muted rounded-lg">
+                      {rule.examples.map((example, exampleIndex) => <div key={exampleIndex} className="flex items-center justify-between p-3 bg-muted rounded-lg">
                           <div className="text-sm">
-                            {'cpu' in example ? (
-                              <div>
+                            {'cpu' in example ? <div>
                                 <p className="font-medium">{example.cpu} ({example.socket})</p>
                                 <p className="text-muted-foreground">+ {example.compatible}</p>
-                              </div>
-                            ) : 'component' in example ? (
-                              <div>
+                              </div> : 'component' in example ? <div>
                                 <p className="font-medium">{example.component}</p>
                                 <p className="text-muted-foreground">{example.compatible}</p>
-                              </div>
-                            ) : (
-                              <div>
+                              </div> : <div>
                                 <p className="font-medium">{example.build}</p>
                                 <p className="text-muted-foreground">{example.wattage}</p>
-                              </div>
-                            )}
+                              </div>}
                           </div>
                           <StatusIcon status={example.status} />
-                        </div>
-                      ))}
+                        </div>)}
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </TabsContent>
 
@@ -147,10 +166,7 @@ const Compatibility = () => {
                   <p className="text-muted-foreground mb-4">
                     El verificador de compatibilidad está integrado en nuestro constructor de PC
                   </p>
-                  <a 
-                    href="/" 
-                    className="tech-button inline-flex items-center"
-                  >
+                  <a href="/" className="tech-button inline-flex items-center">
                     Ir al Constructor
                   </a>
                 </div>
@@ -214,8 +230,6 @@ const Compatibility = () => {
       </main>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Compatibility;
