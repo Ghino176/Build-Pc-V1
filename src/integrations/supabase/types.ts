@@ -9,6 +9,53 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      build_components: {
+        Row: {
+          build_id: string
+          component_brand: string
+          component_category: string
+          component_id: string
+          component_image: string | null
+          component_name: string
+          component_price: number
+          component_specs: Json | null
+          created_at: string
+          id: string
+        }
+        Insert: {
+          build_id: string
+          component_brand: string
+          component_category: string
+          component_id: string
+          component_image?: string | null
+          component_name: string
+          component_price: number
+          component_specs?: Json | null
+          created_at?: string
+          id?: string
+        }
+        Update: {
+          build_id?: string
+          component_brand?: string
+          component_category?: string
+          component_id?: string
+          component_image?: string | null
+          component_name?: string
+          component_price?: number
+          component_specs?: Json | null
+          created_at?: string
+          id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "build_components_build_id_fkey"
+            columns: ["build_id"]
+            isOneToOne: false
+            referencedRelation: "pc_builds"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       cases: {
         Row: {
           brand: string
@@ -255,6 +302,36 @@ export type Database = {
           price?: number
           socket?: string
           updated_at?: string
+        }
+        Relationships: []
+      }
+      pc_builds: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          total_price: number
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          total_price?: number
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          total_price?: number
+          updated_at?: string
+          user_id?: string | null
         }
         Relationships: []
       }

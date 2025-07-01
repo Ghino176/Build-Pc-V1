@@ -5,10 +5,11 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { ShoppingCart, Share2, Gamepad, AlertTriangle } from 'lucide-react';
+import { Share2, Gamepad, AlertTriangle } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { componentCategories } from '@/data/components';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import SaveBuildDialog from './SaveBuildDialog';
 
 const BuildSummary: React.FC = () => {
   const { selectedComponents, compatibilityWarnings } = usePcBuilder();
@@ -141,9 +142,7 @@ const BuildSummary: React.FC = () => {
         )}
       </CardContent>
       <CardFooter className="flex-col space-y-2 pt-2">
-        <Button className="w-full bg-tech-blue hover:bg-tech-lightBlue">
-          <ShoppingCart className="mr-2 h-4 w-4" /> Guardar Build
-        </Button>
+        <SaveBuildDialog />
         <Button variant="outline" className="w-full border-tech-blue/50 text-tech-blue hover:bg-tech-blue/10">
           <Share2 className="mr-2 h-4 w-4" /> Compartir Build
         </Button>
