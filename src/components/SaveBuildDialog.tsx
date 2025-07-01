@@ -30,6 +30,8 @@ const SaveBuildDialog: React.FC = () => {
 
     setLoading(true);
     try {
+      console.log('Attempting to save build with components:', selectedComponents);
+      
       const { data, error } = await saveBuild(
         name.trim(),
         description.trim(),
@@ -38,7 +40,23 @@ const SaveBuildDialog: React.FC = () => {
       );
 
       if (error) {
-        throw error;
+        console.error('Save build error:', error);
+        
+        // Check if it's an authentication error
+        if (error.message.includes('authenticated') || error.message.includes('auth')) {
+          toast({
+            title: "Authentication Required",
+            description: "You need to be logged in to save builds. Please sign in and try again.",
+            variant: "destructive",
+          });
+        } else {
+          toast({
+            title: "Error",
+            description: `Failed to save build: ${error.message}`,
+            variant: "destructive",
+          });
+        }
+        return;
       }
 
       toast({
@@ -50,10 +68,10 @@ const SaveBuildDialog: React.FC = () => {
       setName('');
       setDescription('');
     } catch (error) {
-      console.error('Save build error:', error);
+      console.error('Unexpected save build error:', error);
       toast({
         title: "Error",
-        description: "Failed to save build. Please try again.",
+        description: "An unexpected error occurred. Please try again.",
         variant: "destructive",
       });
     } finally {
