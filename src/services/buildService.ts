@@ -31,16 +31,9 @@ export const saveBuild = async (
   components: Record<string, any>
 ): Promise<{ data: SavedBuild | null; error: Error | null }> => {
   try {
-    // Get the current user
-    const { data: { user }, error: userError } = await supabase.auth.getUser();
-    
-    if (userError || !user) {
-      throw new Error('User not authenticated. Please log in to save builds.');
-    }
+    console.log('Attempting to save build with components:', components);
 
-    console.log('Saving build for user:', user.id);
-
-    // First, create the build
+    // First, create the build (without requiring authentication)
     const { data: buildData, error: buildError } = await supabase
       .from('pc_builds')
       .insert([
@@ -48,7 +41,7 @@ export const saveBuild = async (
           name,
           description,
           total_price: totalPrice,
-          user_id: user.id
+          user_id: null // Set to null for public builds
         }
       ])
       .select()
@@ -101,13 +94,6 @@ export const saveBuild = async (
 
 export const getUserBuilds = async (): Promise<{ data: SavedBuild[] | null; error: Error | null }> => {
   try {
-    // Check if user is authenticated
-    const { data: { user }, error: userError } = await supabase.auth.getUser();
-    
-    if (userError || !user) {
-      throw new Error('User not authenticated');
-    }
-
     const { data, error } = await supabase
       .from('pc_builds')
       .select('*')
@@ -126,13 +112,6 @@ export const getUserBuilds = async (): Promise<{ data: SavedBuild[] | null; erro
 
 export const getBuildComponents = async (buildId: string): Promise<{ data: BuildComponent[] | null; error: Error | null }> => {
   try {
-    // Check if user is authenticated
-    const { data: { user }, error: userError } = await supabase.auth.getUser();
-    
-    if (userError || !user) {
-      throw new Error('User not authenticated');
-    }
-
     const { data, error } = await supabase
       .from('build_components')
       .select('*')

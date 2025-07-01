@@ -41,21 +41,11 @@ const SaveBuildDialog: React.FC = () => {
 
       if (error) {
         console.error('Save build error:', error);
-        
-        // Check if it's an authentication error
-        if (error.message.includes('authenticated') || error.message.includes('auth')) {
-          toast({
-            title: "Authentication Required",
-            description: "You need to be logged in to save builds. Please sign in and try again.",
-            variant: "destructive",
-          });
-        } else {
-          toast({
-            title: "Error",
-            description: `Failed to save build: ${error.message}`,
-            variant: "destructive",
-          });
-        }
+        toast({
+          title: "Error",
+          description: `Failed to save build: ${error.message}`,
+          variant: "destructive",
+        });
         return;
       }
 
