@@ -56,17 +56,20 @@ export const saveBuild = async (
 
     // Then, insert all components
     const buildComponents = Object.values(components)
-      .filter(component => component !== null)
-      .map(component => ({
-        build_id: buildData.id,
-        component_id: component.id,
-        component_category: component.category,
-        component_name: component.name,
-        component_brand: component.brand,
-        component_price: component.price,
-        component_image: component.image,
-        component_specs: component.specs
-      }));
+      .filter(component => component !== null && component !== undefined)
+      .map(component => {
+        console.log('Processing component:', component);
+        return {
+          build_id: buildData.id,
+          component_id: component.id || 'unknown',
+          component_category: component.category || 'unknown',
+          component_name: component.name || 'Unknown Component',
+          component_brand: component.brand || 'Unknown Brand',
+          component_price: component.price || 0,
+          component_image: component.image || null,
+          component_specs: component.specs || null
+        };
+      });
 
     if (buildComponents.length > 0) {
       console.log('Saving components:', buildComponents);
