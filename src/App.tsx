@@ -8,6 +8,7 @@ import { PcBuilderProvider } from "@/context/PcBuilderContext";
 import Index from "./pages/Index";
 import Upgrades from "./pages/Upgrades";
 import Compatibility from "./pages/Compatibility";
+import SavedBuilds from "./pages/SavedBuilds";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/upgrades" element={<Upgrades />} />
             <Route path="/compatibility" element={<Compatibility />} />
+            <Route path="/builds" element={<SavedBuilds />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
