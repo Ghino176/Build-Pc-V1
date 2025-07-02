@@ -10,6 +10,7 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   plugins: [
+    base: ghino176.github.io/Build-Pc-V1
     react(),
     mode === 'development' &&
     componentTagger(),
