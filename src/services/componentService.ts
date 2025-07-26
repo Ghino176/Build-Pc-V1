@@ -111,3 +111,25 @@ export const getAllComponents = async (): Promise<Record<string, ComponentData[]
 
   return components;
 };
+
+export const addComponent = async (category: keyof typeof componentTableMap, componentData: any): Promise<{ data: any | null; error: any | null }> => {
+  const tableName = componentTableMap[category];
+  
+  try {
+    const { data, error } = await supabase
+      .from(tableName)
+      .insert([componentData])
+      .select()
+      .single();
+
+    if (error) {
+      console.error(`Error adding ${category} component:`, error);
+      return { data: null, error };
+    }
+
+    return { data, error: null };
+  } catch (error) {
+    console.error(`Error adding ${category} component:`, error);
+    return { data: null, error };
+  }
+};
