@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PcBuilderProvider } from "@/context/PcBuilderContext";
 import Index from "./pages/Index";
 import Upgrades from "./pages/Upgrades";
@@ -21,7 +21,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <PcBuilderProvider>
-        <HashRouter>
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/upgrades" element={<Upgrades />} />
@@ -31,7 +31,7 @@ const App = () => (
             <Route path="/admin-login" element={<AdminLogin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </HashRouter>
+        </BrowserRouter>
       </PcBuilderProvider>
     </TooltipProvider>
   </QueryClientProvider>
