@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Settings, Cpu, Monitor, HardDrive, Zap, Box, Fan, MemoryStick, Circuit } from 'lucide-react';
+import { Settings, Cpu, Monitor, HardDrive, Zap, Box, Fan, MemoryStick, Layers } from 'lucide-react';
 import AdminComponentForm from '@/components/AdminComponentForm';
 
 const Admin = () => {
@@ -24,7 +24,7 @@ const Admin = () => {
             <span className="hidden sm:inline">CPU</span>
           </TabsTrigger>
           <TabsTrigger value="motherboard" className="flex items-center space-x-2">
-            <Circuit className="h-4 w-4" />
+            <Layers className="h-4 w-4" />
             <span className="hidden sm:inline">Motherboard</span>
           </TabsTrigger>
           <TabsTrigger value="ram" className="flex items-center space-x-2">
@@ -72,7 +72,7 @@ const Admin = () => {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
-                  <Circuit className="h-5 w-5" />
+                  <Layers className="h-5 w-5" />
                   <span>Agregar Motherboard</span>
                 </CardTitle>
               </CardHeader>
