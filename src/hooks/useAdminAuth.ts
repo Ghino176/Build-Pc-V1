@@ -9,6 +9,7 @@ export const useAdminAuth = () => {
       const authenticated = localStorage.getItem('adminAuthenticated') === 'true';
       const user = localStorage.getItem('adminUser');
       
+      console.log('Checking auth state:', { authenticated, user });
       setIsAuthenticated(authenticated);
       setAdminUser(user);
     };

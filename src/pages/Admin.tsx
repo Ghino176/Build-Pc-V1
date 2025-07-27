@@ -14,9 +14,15 @@ const Admin = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
+  console.log('Admin page - isAuthenticated:', isAuthenticated, 'adminUser:', adminUser);
+
   useEffect(() => {
+    console.log('Admin useEffect - isAuthenticated:', isAuthenticated);
     if (!isAuthenticated) {
+      console.log('Not authenticated, redirecting to login');
       navigate('/admin-login');
+    } else {
+      console.log('User is authenticated, showing admin panel');
     }
   }, [isAuthenticated, navigate]);
 
@@ -30,8 +36,11 @@ const Admin = () => {
   };
 
   if (!isAuthenticated) {
+    console.log('Rendering null because not authenticated');
     return null; // El useEffect redirigirá
   }
+
+  console.log('Rendering admin panel for user:', adminUser);
 
   return (
     <div className="min-h-screen bg-background">

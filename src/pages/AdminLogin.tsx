@@ -19,21 +19,30 @@ const AdminLogin = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('Login attempt started');
+    console.log('Username:', username);
+    console.log('Password length:', password.length);
+    
     setError('');
     setIsLoading(true);
 
     // Simular un delay de autenticación
     await new Promise(resolve => setTimeout(resolve, 1000));
 
+    console.log('Checking credentials...');
     if (username === 'GhinoAlvarez' && password === '567294381') {
+      console.log('Credentials valid, setting localStorage');
       localStorage.setItem('adminAuthenticated', 'true');
       localStorage.setItem('adminUser', username);
+      console.log('localStorage set, showing toast');
       toast({
         title: "Acceso autorizado",
         description: "Bienvenido al panel de administración",
       });
+      console.log('Navigating to /admin');
       navigate('/admin');
     } else {
+      console.log('Invalid credentials');
       setError('Usuario o contraseña incorrectos');
       toast({
         title: "Error de autenticación",
