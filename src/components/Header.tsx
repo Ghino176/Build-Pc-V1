@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Monitor, Database } from 'lucide-react';
+import { Monitor, Database, Settings } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
@@ -32,6 +32,12 @@ const Header = () => {
 
           <div className="flex items-center space-x-4">
             <ThemeToggle />
+            <Button size="sm" variant="outline" asChild>
+              <Link to="/admin">
+                <Settings className="mr-2 h-4 w-4" />
+                Admin
+              </Link>
+            </Button>
             <Button size="sm" className="bg-tech-blue hover:bg-tech-lightBlue" asChild>
               <Link to="/builds">
                 <Database className="mr-2 h-4 w-4" />
