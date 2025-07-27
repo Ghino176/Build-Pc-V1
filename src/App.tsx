@@ -10,6 +10,7 @@ import Upgrades from "./pages/Upgrades";
 import Compatibility from "./pages/Compatibility";
 import SavedBuilds from "./pages/SavedBuilds";
 import Admin from "./pages/Admin";
+import AdminLogin from "./pages/AdminLogin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/compatibility" element={<Compatibility />} />
             <Route path="/builds" element={<SavedBuilds />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/admin-login" element={<AdminLogin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </HashRouter>

@@ -33,7 +33,7 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <ThemeToggle />
             <Button size="sm" variant="outline" asChild>
-              <Link to="/admin">
+              <Link to="/admin-login">
                 <Settings className="mr-2 h-4 w-4" />
                 Admin
               </Link>

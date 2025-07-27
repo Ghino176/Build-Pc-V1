@@ -1,16 +1,55 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Settings, Cpu, Monitor, HardDrive, Zap, Box, Fan, MemoryStick, Layers } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Settings, Cpu, Monitor, HardDrive, Zap, Box, Fan, MemoryStick, Layers, LogOut, User } from 'lucide-react';
 import AdminComponentForm from '@/components/AdminComponentForm';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
+import { useToast } from '@/hooks/use-toast';
 
 const Admin = () => {
+  const { isAuthenticated, adminUser, logout } = useAdminAuth();
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/admin-login');
+    }
+  }, [isAuthenticated, navigate]);
+
+  const handleLogout = () => {
+    logout();
+    toast({
+      title: "Sesión cerrada",
+      description: "Has salido del panel de administración",
+    });
+    navigate('/');
+  };
+
+  if (!isAuthenticated) {
+    return null; // El useEffect redirigirá
+  }
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
-        <div className="flex items-center space-x-3 mb-4">
-          <Settings className="h-8 w-8 text-tech-blue" />
-          <h1 className="text-3xl font-bold text-tech-blue">Panel de Administración</h1>
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center space-x-3">
+            <Settings className="h-8 w-8 text-tech-blue" />
+            <h1 className="text-3xl font-bold text-tech-blue">Panel de Administración</h1>
+          </div>
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <User className="h-4 w-4" />
+              <span>{adminUser}</span>
+            </div>
+            <Button variant="outline" size="sm" onClick={handleLogout}>
+              <LogOut className="h-4 w-4 mr-2" />
+              Cerrar Sesión
+            </Button>
+          </div>
         </div>
         <p className="text-muted-foreground">
           Agrega nuevos componentes a la base de datos que aparecerán automáticamente en el builder de PCs.
