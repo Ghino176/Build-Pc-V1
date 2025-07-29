@@ -97,7 +97,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ component, onSelect }) =>
           <img 
             src={component.image} 
             alt={component.name}
-            className="max-h-full max-w-full object-contain"
+            className="max-h-full max-w-full object-contain component-image"
           />
         </div>
 

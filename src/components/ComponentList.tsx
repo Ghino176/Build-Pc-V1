@@ -97,7 +97,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ component, isSelected, on
           <img 
             src={component.image} 
             alt={component.name}
-            className="max-h-full max-w-full object-contain"
+            className="max-h-full max-w-full object-contain component-image"
           />
         </div>
         <div className="flex justify-between items-start">

@@ -131,11 +131,11 @@ const Upgrades = () => {
                       </CardHeader>
                       <CardContent className="space-y-4">
                         <div className="aspect-video bg-muted rounded-md flex items-center justify-center">
-                          <img 
-                            src={component.image} 
-                            alt={component.name}
-                            className="max-h-full max-w-full object-contain"
-                          />
+          <img 
+            src={component.image} 
+            alt={component.name}
+            className="max-h-full max-w-full object-contain component-image"
+          />
                         </div>
                         <div className="flex justify-between items-center">
                           <Badge className="bg-tech-blue">{formatPrice(component.price)}</Badge>
@@ -254,7 +254,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ component, onSelect }) =>
           <img 
             src={component.image} 
             alt={component.name}
-            className="max-h-full max-w-full object-contain"
+            className="max-h-full max-w-full object-contain component-image"
           />
         </div>
 

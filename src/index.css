@@ -155,4 +155,19 @@
   .glow-border {
     @apply border border-tech-blue/50 shadow-lg shadow-tech-blue/20 backdrop-blur-md;
   }
+
+  /* Component image styles to preserve SVG colors */
+  .component-image {
+    filter: none !important;
+    color: initial !important;
+  }
+
+  .component-image svg {
+    fill: currentColor !important;
+  }
+
+  /* Dark mode adjustments for component images */
+  .dark .component-image {
+    filter: brightness(0.9) contrast(1.1);
+  }
 }

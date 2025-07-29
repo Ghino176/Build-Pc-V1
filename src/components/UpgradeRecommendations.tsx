@@ -213,7 +213,7 @@ const UpgradeCard: React.FC<UpgradeCardProps> = ({ component, currentComponent, 
           <img 
             src={component.image} 
             alt={component.name}
-            className="max-h-full max-w-full object-contain"
+            className="max-h-full max-w-full object-contain component-image"
           />
         </div>
 
