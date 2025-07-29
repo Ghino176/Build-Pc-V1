@@ -33,6 +33,16 @@
     --input: 214 32% 91%;
     --ring: 224 76% 48%;
 
+    /* Component category colors */
+    --cpu-color: 355 85% 60%;         /* Red */
+    --motherboard-color: 142 76% 36%; /* Green */
+    --ram-color: 271 81% 56%;         /* Purple */
+    --gpu-color: 17 94% 53%;          /* Orange */
+    --storage-color: 200 98% 39%;     /* Blue */
+    --psu-color: 45 93% 47%;          /* Yellow */
+    --case-color: 328 85% 70%;        /* Pink */
+    --cooling-color: 184 77% 34%;     /* Teal */
+
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
@@ -73,6 +83,16 @@
     --border: 216 34% 17%;
     --input: 216 34% 17%;
     --ring: 224 76% 48%;
+
+    /* Component category colors (dark mode) */
+    --cpu-color: 355 70% 55%;         /* Red */
+    --motherboard-color: 142 60% 45%; /* Green */
+    --ram-color: 271 70% 65%;         /* Purple */
+    --gpu-color: 17 85% 60%;          /* Orange */
+    --storage-color: 200 85% 50%;     /* Blue */
+    --psu-color: 45 85% 55%;          /* Yellow */
+    --case-color: 328 70% 75%;        /* Pink */
+    --cooling-color: 184 65% 45%;     /* Teal */
 
     --sidebar-background: 222 47% 11%;
     --sidebar-foreground: 210 40% 98%;

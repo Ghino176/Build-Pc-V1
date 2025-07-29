@@ -70,35 +70,35 @@ const Admin = () => {
 
       <Tabs defaultValue="cpu" className="w-full">
         <TabsList className="grid w-full grid-cols-4 lg:grid-cols-8">
-          <TabsTrigger value="cpu" className="flex items-center space-x-2">
+          <TabsTrigger value="cpu" className="flex items-center space-x-2 data-[state=active]:bg-component-cpu/10 data-[state=active]:border-component-cpu data-[state=active]:text-component-cpu">
             <Cpu className="h-4 w-4" />
             <span className="hidden sm:inline">CPU</span>
           </TabsTrigger>
-          <TabsTrigger value="motherboard" className="flex items-center space-x-2">
+          <TabsTrigger value="motherboard" className="flex items-center space-x-2 data-[state=active]:bg-component-motherboard/10 data-[state=active]:border-component-motherboard data-[state=active]:text-component-motherboard">
             <Layers className="h-4 w-4" />
             <span className="hidden sm:inline">Motherboard</span>
           </TabsTrigger>
-          <TabsTrigger value="ram" className="flex items-center space-x-2">
+          <TabsTrigger value="ram" className="flex items-center space-x-2 data-[state=active]:bg-component-ram/10 data-[state=active]:border-component-ram data-[state=active]:text-component-ram">
             <MemoryStick className="h-4 w-4" />
             <span className="hidden sm:inline">RAM</span>
           </TabsTrigger>
-          <TabsTrigger value="gpu" className="flex items-center space-x-2">
+          <TabsTrigger value="gpu" className="flex items-center space-x-2 data-[state=active]:bg-component-gpu/10 data-[state=active]:border-component-gpu data-[state=active]:text-component-gpu">
             <Monitor className="h-4 w-4" />
             <span className="hidden sm:inline">GPU</span>
           </TabsTrigger>
-          <TabsTrigger value="storage" className="flex items-center space-x-2">
+          <TabsTrigger value="storage" className="flex items-center space-x-2 data-[state=active]:bg-component-storage/10 data-[state=active]:border-component-storage data-[state=active]:text-component-storage">
             <HardDrive className="h-4 w-4" />
             <span className="hidden sm:inline">Storage</span>
           </TabsTrigger>
-          <TabsTrigger value="psu" className="flex items-center space-x-2">
+          <TabsTrigger value="psu" className="flex items-center space-x-2 data-[state=active]:bg-component-psu/10 data-[state=active]:border-component-psu data-[state=active]:text-component-psu">
             <Zap className="h-4 w-4" />
             <span className="hidden sm:inline">PSU</span>
           </TabsTrigger>
-          <TabsTrigger value="case" className="flex items-center space-x-2">
+          <TabsTrigger value="case" className="flex items-center space-x-2 data-[state=active]:bg-component-case/10 data-[state=active]:border-component-case data-[state=active]:text-component-case">
             <Box className="h-4 w-4" />
             <span className="hidden sm:inline">Case</span>
           </TabsTrigger>
-          <TabsTrigger value="cooling" className="flex items-center space-x-2">
+          <TabsTrigger value="cooling" className="flex items-center space-x-2 data-[state=active]:bg-component-cooling/10 data-[state=active]:border-component-cooling data-[state=active]:text-component-cooling">
             <Fan className="h-4 w-4" />
             <span className="hidden sm:inline">Cooling</span>
           </TabsTrigger>
@@ -106,9 +106,9 @@ const Admin = () => {
 
         <div className="mt-6">
           <TabsContent value="cpu">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
+            <Card className="border-component-cpu/20">
+              <CardHeader className="border-b border-component-cpu/10 bg-component-cpu/5">
+                <CardTitle className="flex items-center space-x-2 text-component-cpu">
                   <Cpu className="h-5 w-5" />
                   <span>Agregar Procesador (CPU)</span>
                 </CardTitle>
@@ -120,9 +120,9 @@ const Admin = () => {
           </TabsContent>
 
           <TabsContent value="motherboard">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
+            <Card className="border-component-motherboard/20">
+              <CardHeader className="border-b border-component-motherboard/10 bg-component-motherboard/5">
+                <CardTitle className="flex items-center space-x-2 text-component-motherboard">
                   <Layers className="h-5 w-5" />
                   <span>Agregar Motherboard</span>
                 </CardTitle>
@@ -134,9 +134,9 @@ const Admin = () => {
           </TabsContent>
 
           <TabsContent value="ram">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
+            <Card className="border-component-ram/20">
+              <CardHeader className="border-b border-component-ram/10 bg-component-ram/5">
+                <CardTitle className="flex items-center space-x-2 text-component-ram">
                   <MemoryStick className="h-5 w-5" />
                   <span>Agregar Memoria RAM</span>
                 </CardTitle>
@@ -148,9 +148,9 @@ const Admin = () => {
           </TabsContent>
 
           <TabsContent value="gpu">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
+            <Card className="border-component-gpu/20">
+              <CardHeader className="border-b border-component-gpu/10 bg-component-gpu/5">
+                <CardTitle className="flex items-center space-x-2 text-component-gpu">
                   <Monitor className="h-5 w-5" />
                   <span>Agregar Tarjeta Gráfica</span>
                 </CardTitle>
@@ -162,9 +162,9 @@ const Admin = () => {
           </TabsContent>
 
           <TabsContent value="storage">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
+            <Card className="border-component-storage/20">
+              <CardHeader className="border-b border-component-storage/10 bg-component-storage/5">
+                <CardTitle className="flex items-center space-x-2 text-component-storage">
                   <HardDrive className="h-5 w-5" />
                   <span>Agregar Almacenamiento</span>
                 </CardTitle>
@@ -176,9 +176,9 @@ const Admin = () => {
           </TabsContent>
 
           <TabsContent value="psu">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
+            <Card className="border-component-psu/20">
+              <CardHeader className="border-b border-component-psu/10 bg-component-psu/5">
+                <CardTitle className="flex items-center space-x-2 text-component-psu">
                   <Zap className="h-5 w-5" />
                   <span>Agregar Fuente de Poder</span>
                 </CardTitle>
@@ -190,9 +190,9 @@ const Admin = () => {
           </TabsContent>
 
           <TabsContent value="case">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
+            <Card className="border-component-case/20">
+              <CardHeader className="border-b border-component-case/10 bg-component-case/5">
+                <CardTitle className="flex items-center space-x-2 text-component-case">
                   <Box className="h-5 w-5" />
                   <span>Agregar Case/Gabinete</span>
                 </CardTitle>
@@ -204,9 +204,9 @@ const Admin = () => {
           </TabsContent>
 
           <TabsContent value="cooling">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
+            <Card className="border-component-cooling/20">
+              <CardHeader className="border-b border-component-cooling/10 bg-component-cooling/5">
+                <CardTitle className="flex items-center space-x-2 text-component-cooling">
                   <Fan className="h-5 w-5" />
                   <span>Agregar Sistema de Cooling</span>
                 </CardTitle>

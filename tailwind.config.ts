@@ -69,6 +69,16 @@ export default {
 					lightBlue: '#00d4ff',
 					gray: '#2d3748',
 					black: '#111827',
+				},
+				component: {
+					cpu: 'hsl(var(--cpu-color))',
+					motherboard: 'hsl(var(--motherboard-color))',
+					ram: 'hsl(var(--ram-color))',
+					gpu: 'hsl(var(--gpu-color))',
+					storage: 'hsl(var(--storage-color))',
+					psu: 'hsl(var(--psu-color))',
+					case: 'hsl(var(--case-color))',
+					cooling: 'hsl(var(--cooling-color))',
 				}
 			},
 			borderRadius: {
