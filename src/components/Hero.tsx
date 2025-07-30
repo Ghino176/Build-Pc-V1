@@ -5,8 +5,8 @@ const Hero: React.FC = () => {
   console.log('Hero component rendering');
   return <div className="relative w-full h-screen -mt-20 pt-20 flex items-center justify-center overflow-hidden">
       {/* Background Image with Reduced Opacity */}
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30" style={{
-      backgroundImage: "url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&h=1080&fit=crop&crop=center')"
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90" style={{
+      backgroundImage: "url('hero1.png')"
     }} />
       
       {/* Dark Overlay for Better Text Readability */}
@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-tech-blue/10 rounded-full mb-4">
                 <Zap className="h-8 w-8 text-tech-blue" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Compatibilidad Inteligente</h3>
+              <h3 className="text-xl font-semibold mb-2 text-white">Compatibilidad Inteligente</h3>
               <p className="text-muted-foreground">
                 Verifica automáticamente la compatibilidad entre componentes para evitar errores.
               </p>
@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-tech-lightBlue/10 rounded-full mb-4">
                 <Shield className="h-8 w-8 text-tech-lightBlue" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Recomendaciones Expertas</h3>
+              <h3 className="text-xl font-semibold mb-2 text-white">Recomendaciones Expertas</h3>
               <p className="text-muted-foreground">
                 Obtén sugerencias personalizadas basadas en tu presupuesto y necesidades.
               </p>
@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-tech-blue/10 rounded-full mb-4">
                 <ArrowRight className="h-8 w-8 text-tech-blue" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Fácil de Usar</h3>
+              <h3 className="text-xl font-semibold mb-2 text-white">Fácil de Usar</h3>
               <p className="text-muted-foreground">
                 Interfaz intuitiva que te guía paso a paso en el proceso de construcción.
               </p>

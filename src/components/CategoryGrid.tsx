@@ -58,7 +58,7 @@ const CategoryGrid: React.FC = () => {
                   )}
                 </div>
                 
-                <p className="text-sm text-muted-foreground mt-2">{category.description}</p>
+                <p className="text-black text-muted-foreground mt-2">{category.description}</p>
                 
                 {selectedComponent && (
                   <div className="mt-3 pt-3 border-t border-tech-blue/20">

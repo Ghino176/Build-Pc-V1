@@ -18,8 +18,7 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="text-muted-foreground hover:text-tech-blue">Guía de Construcción de PC</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-tech-blue">Compatibilidad de Componentes</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-tech-blue">Builds Populares</a></li>
+              <li><a href="/compatibility" className="text-muted-foreground hover:text-tech-blue">Compatibilidad de Componentes</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-tech-blue">Soporte</a></li>
             </ul>
           </div>
@@ -38,7 +37,7 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-4">Contacto</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>ghino176@gmail.com</li>
-              <li>0414-649-4083</li>
+              
             </ul>
           </div>
         </div>

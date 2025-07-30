@@ -20,7 +20,7 @@ const Header = () => {
               Constructor
             </Link>
             <Link to="/builds" className="text-muted-foreground hover:text-foreground transition-colors">
-              Mis Builds
+              Builds
             </Link>
             <Link to="/upgrades" className="text-muted-foreground hover:text-foreground transition-colors">
               Upgrades
@@ -33,10 +33,7 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <ThemeToggle />
             <Button size="sm" variant="outline" asChild>
-              <Link to="/admin-login">
-                <Settings className="mr-2 h-4 w-4" />
-                Admin
-              </Link>
+              
             </Button>
             <Button size="sm" className="bg-tech-blue hover:bg-tech-lightBlue" asChild>
               <Link to="/builds">

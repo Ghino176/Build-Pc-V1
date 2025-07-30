@@ -55,7 +55,7 @@ const ComponentList: React.FC<ComponentListProps> = ({ category }) => {
   return (
     <section id={category.id} className="py-8">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold">{category.name}</h2>
+        <h2 className="text-2xl font-bold text-white">{category.name}</h2>
         {selectedComponent && (
           <Button 
             variant="outline" 
@@ -67,7 +67,7 @@ const ComponentList: React.FC<ComponentListProps> = ({ category }) => {
         )}
       </div>
       
-      <p className="text-muted-foreground mb-6">{category.description}</p>
+      <p className="text-white mb-6">{category.description}</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {components.map((component) => (
