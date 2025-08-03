@@ -206,10 +206,11 @@ const InputCurrentStep: React.FC<InputCurrentStepProps> = ({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {componentCategories.map((category) => {
+          {componentCategories
+            .filter(category => category.id !== componentToUpgrade)
+            .map((category) => {
             const component = currentComponents[category.id];
             const hasComponent = !!component;
-            
             return (
               <Card 
                 key={category.id} 
