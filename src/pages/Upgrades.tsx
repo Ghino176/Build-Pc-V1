@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { formatPrice } from '@/lib/utils';
 import { checkAllCompatibility } from '@/utils/compatibilityCheck';
+import { saveBuild } from '@/services/buildService';
+import { toast } from '@/hooks/use-toast';
 
 type UpgradeStep = 'select-component' | 'input-current' | 'show-upgrades';
 
@@ -297,7 +299,9 @@ const ShowUpgradesStep: React.FC<ShowUpgradesStepProps> = ({
   currentComponents
 }) => {
   const [upgradeOptions, setUpgradeOptions] = useState<Component[]>([]);
+  const [selectedUpgrade, setSelectedUpgrade] = useState<Component | null>(null);
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
   
   const upgradeCategory = componentCategories.find(cat => cat.id === componentToUpgrade);
   const compatibilityWarnings = checkAllCompatibility(currentComponents);
@@ -331,6 +335,47 @@ const ShowUpgradesStep: React.FC<ShowUpgradesStepProps> = ({
     fetchUpgradeOptions();
   }, [componentToUpgrade, currentComponents]);
 
+  const handleSaveUpgrade = async () => {
+    if (!selectedUpgrade) return;
+
+    setSaving(true);
+    try {
+      // Crear la build con todos los componentes actuales + el upgrade
+      const finalComponents = {
+        ...currentComponents,
+        [componentToUpgrade]: selectedUpgrade
+      };
+
+      const totalPrice = Object.values(finalComponents).reduce((sum, component) => sum + component.price, 0);
+      const buildName = `Upgrade ${upgradeCategory?.name} - ${selectedUpgrade.name}`;
+      const buildDescription = `Build con upgrade de ${upgradeCategory?.name} a ${selectedUpgrade.name}`;
+
+      const result = await saveBuild(buildName, buildDescription, totalPrice, finalComponents);
+      
+      if (result.error) {
+        throw result.error;
+      }
+      
+      toast({
+        title: "Upgrade guardado",
+        description: "Tu upgrade se ha guardado exitosamente en tus builds.",
+      });
+
+      // Opcional: redirigir a builds guardadas
+      // navigate('/saved-builds');
+      
+    } catch (error) {
+      console.error('Error saving upgrade:', error);
+      toast({
+        title: "Error",
+        description: "No se pudo guardar el upgrade. Inténtalo de nuevo.",
+        variant: "destructive",
+      });
+    } finally {
+      setSaving(false);
+    }
+  };
+
   if (loading) {
     return (
       <div className="py-8 text-center">
@@ -363,15 +408,44 @@ const ShowUpgradesStep: React.FC<ShowUpgradesStepProps> = ({
         </div>
       )}
 
+      {selectedUpgrade && (
+        <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-6 mb-8">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-lg font-semibold text-green-400 mb-2">Upgrade Seleccionado</h3>
+              <p className="text-green-300">
+                <strong>{selectedUpgrade.name}</strong> - {formatPrice(selectedUpgrade.price)}
+              </p>
+              <p className="text-muted-foreground text-sm mt-1">
+                {selectedUpgrade.description}
+              </p>
+            </div>
+            <div className="flex gap-3">
+              <Button 
+                variant="outline" 
+                onClick={() => setSelectedUpgrade(null)}
+              >
+                Cambiar selección
+              </Button>
+              <Button 
+                onClick={handleSaveUpgrade}
+                disabled={saving}
+                className="bg-green-600 hover:bg-green-700"
+              >
+                {saving ? 'Guardando...' : 'Guardar Upgrade'}
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {upgradeOptions.map((component) => (
-          <ComponentCard 
+          <UpgradeComponentCard 
             key={component.id}
             component={component}
-            onSelect={() => {
-              // Aquí puedes agregar lógica para seleccionar el upgrade
-              console.log('Upgrade seleccionado:', component);
-            }}
+            isSelected={selectedUpgrade?.id === component.id}
+            onSelect={() => setSelectedUpgrade(component)}
           />
         ))}
       </div>
@@ -499,6 +573,60 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ component, onSelect }) =>
           className="w-full bg-tech-blue hover:bg-tech-lightBlue"
         >
           Seleccionar componente
+        </Button>
+      </CardContent>
+    </Card>
+  );
+};
+
+interface UpgradeComponentCardProps {
+  component: Component;
+  isSelected: boolean;
+  onSelect: () => void;
+}
+
+const UpgradeComponentCard: React.FC<UpgradeComponentCardProps> = ({ component, isSelected, onSelect }) => {
+  return (
+    <Card className={`tech-card h-full transition-all ${isSelected ? 'ring-2 ring-green-500 bg-green-500/5' : 'hover:glow-border cursor-pointer'}`}>
+      <CardHeader className="pb-2">
+        <CardTitle className="text-lg text-foreground flex items-center justify-between">
+          {component.name}
+          {isSelected && <Badge className="bg-green-600">Seleccionado</Badge>}
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="aspect-video bg-muted rounded-md flex items-center justify-center">
+          <img 
+            src={component.image} 
+            alt={component.name}
+            className="max-h-full max-w-full object-contain component-image"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <div className="flex justify-between items-center">
+            <span className="text-sm font-medium text-foreground">Precio:</span>
+            <Badge className="bg-tech-blue">{formatPrice(component.price)}</Badge>
+          </div>
+        </div>
+
+        <p className="text-sm text-muted-foreground">{component.description}</p>
+
+        <div className="grid grid-cols-1 gap-1">
+          {Object.entries(component.specs).slice(0, 3).map(([key, value]) => (
+            <div key={key} className="text-xs flex justify-between">
+              <span className="text-muted-foreground">{key}:</span>
+              <span className="font-medium text-foreground">{value}</span>
+            </div>
+          ))}
+        </div>
+
+        <Button 
+          onClick={onSelect}
+          disabled={isSelected}
+          className={`w-full ${isSelected ? 'bg-green-600 hover:bg-green-600' : 'bg-tech-blue hover:bg-tech-lightBlue'}`}
+        >
+          {isSelected ? 'Upgrade seleccionado' : 'Seleccionar upgrade'}
         </Button>
       </CardContent>
     </Card>
