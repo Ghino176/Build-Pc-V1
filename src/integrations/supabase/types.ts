@@ -199,24 +199,6 @@ export type Database = {
         }
         Relationships: []
       }
-      GPU: {
-        Row: {
-          id: number
-          Nombre: string
-          VRAM: string | null
-        }
-        Insert: {
-          id?: number
-          Nombre: string
-          VRAM?: string | null
-        }
-        Update: {
-          id?: number
-          Nombre?: string
-          VRAM?: string | null
-        }
-        Relationships: []
-      }
       graphics_cards: {
         Row: {
           boost_clock: string
