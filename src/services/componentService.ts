@@ -133,3 +133,47 @@ export const addComponent = async (category: keyof typeof componentTableMap, com
     return { data: null, error };
   }
 };
+
+export const updateComponent = async (category: keyof typeof componentTableMap, id: string, componentData: any): Promise<{ data: any | null; error: any | null }> => {
+  const tableName = componentTableMap[category];
+  
+  try {
+    const { data, error } = await supabase
+      .from(tableName)
+      .update(componentData)
+      .eq('id', id)
+      .select()
+      .single();
+
+    if (error) {
+      console.error(`Error updating ${category} component:`, error);
+      return { data: null, error };
+    }
+
+    return { data, error: null };
+  } catch (error) {
+    console.error(`Error updating ${category} component:`, error);
+    return { data: null, error };
+  }
+};
+
+export const deleteComponent = async (category: keyof typeof componentTableMap, id: string): Promise<{ error: any | null }> => {
+  const tableName = componentTableMap[category];
+  
+  try {
+    const { error } = await supabase
+      .from(tableName)
+      .delete()
+      .eq('id', id);
+
+    if (error) {
+      console.error(`Error deleting ${category} component:`, error);
+      return { error };
+    }
+
+    return { error: null };
+  } catch (error) {
+    console.error(`Error deleting ${category} component:`, error);
+    return { error };
+  }
+};
