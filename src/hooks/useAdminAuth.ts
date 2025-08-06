@@ -19,8 +19,13 @@ export const useAdminAuth = () => {
     // Escuchar cambios en localStorage
     window.addEventListener('storage', checkAuth);
     
+    // También escuchar cambios personalizados para actualizaciones inmediatas
+    const handleAuthChange = () => checkAuth();
+    window.addEventListener('adminAuthChange', handleAuthChange);
+    
     return () => {
       window.removeEventListener('storage', checkAuth);
+      window.removeEventListener('adminAuthChange', handleAuthChange);
     };
   }, []);
 

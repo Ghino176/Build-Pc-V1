@@ -34,6 +34,8 @@ const AdminLogin = () => {
       console.log('Credentials valid, setting localStorage');
       localStorage.setItem('adminAuthenticated', 'true');
       localStorage.setItem('adminUser', username);
+      // Disparar evento personalizado para actualización inmediata
+      window.dispatchEvent(new Event('adminAuthChange'));
       console.log('localStorage set, showing toast');
       toast({
         title: "Acceso autorizado",
