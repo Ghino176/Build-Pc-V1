@@ -17,13 +17,7 @@ const Build3DViewer: React.FC<Build3DViewerProps> = ({ open, onOpenChange }) => 
       <DialogContent className="sm:max-w-4xl max-h-[80vh]">
         <DialogHeader className="flex justify-between items-center">
           <DialogTitle className="mx-auto">Vista 3D de tu Build</DialogTitle>
-          <button
-            onClick={() => onOpenChange(false)}
-            className="text-gray-500 hover:text-gray-700 text-xl"
-            aria-label="Cerrar visor 3D"
-          >
-            ×
-          </button>
+          
         </DialogHeader>
 
         <div className="w-full h-[60vh] sm:h-[600px] rounded-lg overflow-hidden">
