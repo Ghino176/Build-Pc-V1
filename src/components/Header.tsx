@@ -51,7 +51,7 @@ const Header = () => {
                 <Button 
                   size="sm" 
                   variant="outline" 
-                  onClick={() => window.open('https://buildpc-parts-manager1.vercel.app/auth', '_blank')}
+                  onClick={() => window.open('https://buildpc-parts-manager1.vercel.app/', '_blank')}
                 >
                   <Settings className="mr-2 h-4 w-4" />
                   Admin
