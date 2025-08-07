@@ -13,7 +13,7 @@ const Build3DViewer: React.FC<Build3DViewerProps> = ({ open, onOpenChange }) => 
         <DialogHeader>
           <DialogTitle className="text-center">Vista 3D de tu Build</DialogTitle>
         </DialogHeader>
-        <div className="w-full h-[600px] rounded-lg overflow-hidden">
+        <div className="w-full h-[600px] sm:h-[500px] md:h-[600px] lg:h-[700px] rounded-lg overflow-hidden">
           <div className="sketchfab-embed-wrapper w-full h-full">
             <iframe 
               title="Friday500 - Inside The Computer (Tower)" 
